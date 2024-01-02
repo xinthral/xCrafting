@@ -3,6 +3,8 @@
 
 #include "ingredient.h"
 #include "recipe.h"
+#include "utilz.h"
+#include "xobj.h"
 
 class CookBook {
 protected:

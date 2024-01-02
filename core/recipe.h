@@ -3,13 +3,14 @@
 
 #include <stdio.h>
 #include <string>
+#include "xobj.h"
 
-class Recipe {
+class Recipe : public xObject {
 protected:
-  std::string name;
 private:
 public:
   Recipe();
+  Recipe(int);
   ~Recipe();
 };
 

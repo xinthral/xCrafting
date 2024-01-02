@@ -23,6 +23,9 @@ all:
 	@echo ""
 	@echo  [core] - main cookbook
 	@echo  [botw] - Breath of the Wild
+	@echo  [cleanbin] - cleans up binaries
+	@echo  [cleancore] - cleans up the core library 
+	@echo  [cleanbotw] - cleans up the botw library 
 	@echo ""
 
 $(MOD1): $(MOD1SRC)
@@ -37,8 +40,20 @@ $(MOD2): $(MOD2SRC)
 	$(CC) $(CFLAGS) -c $< -o $@
 #
 clean: 
-	$(RM) .\\bin\\$(EXEC).exe
-	$(RM) .\\core\\*.o 
-	$(foreach d, $(MODS), $(RM) $d\*.o &&) true 2>&1 >/dev/null
+# $(foreach d, $(MODS), $(RM) $d\\*.o &&) true 2>&1 >/dev/null
+	$(foreach d, $(MODS), $(RM) $d\\*.o &&) true 2>&1 > /dev/null
 
-.PHONEY: core botw
+cleanbin:
+	$(RM) .\\bin\\$(EXEC).exe
+
+cleancore:
+	$(RM) .\\core\\*.o
+
+cleanbotw:
+	$(RM) .\\botw\\*.o
+
+cleanall: 
+	$(MAKE) clean
+	$(MAKE) cleanbin
+
+.PHONEY: core botw 
