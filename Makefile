@@ -1,5 +1,5 @@
 # 
-CC = g++
+CC := g++
 CFLAGS := -g
 MOD1 := core
 MOD1SRC := $(patsubst $(MOD1)/%.cpp, $(MOD1)/%.o, $(wildcard $(MOD1)/*.cpp))
@@ -40,7 +40,6 @@ $(MOD2): $(MOD2SRC)
 	$(CC) $(CFLAGS) -c $< -o $@
 #
 clean: 
-# $(foreach d, $(MODS), $(RM) $d\\*.o &&) true 2>&1 >/dev/null
 	$(foreach d, $(MODS), $(RM) $d\\*.o &&) true 2>&1 > /dev/null
 
 cleanbin:

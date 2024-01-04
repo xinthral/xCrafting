@@ -1,6 +1,7 @@
 #ifndef XOBJ_H
 #define XOBJ_H
 
+#include <map>
 #include <string>
 #include "utilz.h"
 

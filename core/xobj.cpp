@@ -3,14 +3,13 @@
 /*!
  * @brief   Default Constructor
 */
-xObject::xObject() { 
-}
+xObject::xObject() { }
 
 /*!
  * @brief   
 */
 xObject::xObject(int id) : xObject() { 
-  if (this->xid >= 0) { printf("Internal ID Must be < 0: %d\n", this->xid); exit(-1); }
+  if (id >= 0) { printf("Internal ID Must be < 0: %d\n", this->xid); exit(-1); }
   int r = this->set_xid(id);
   if (r != id) { printf("ID Input Failure: %d\n", r); exit(-1); }
 }
@@ -19,8 +18,8 @@ xObject::xObject(int id) : xObject() {
  * @brief   
 */
 xObject::xObject(int id, std::string rename) :xObject(id) {
- this->set_xid(id);
- this->set_name(rename);
+  this->set_xid(id);
+  this->set_name(rename);
 }
 
 /*!
