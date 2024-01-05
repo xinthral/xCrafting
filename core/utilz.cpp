@@ -102,7 +102,7 @@ void Utilz::Strip(std::string& input) {
  * @brief   Returns Randomly generated string
 */
 std::string Utilz::randomString(int length) {
-  std::srand(std::time(nullptr));
+  std::srand(std::time({}));
   std::string lexigraph = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
   std::string output = "";
   int idx = -1;
