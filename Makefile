@@ -1,6 +1,6 @@
 # 
 CC := g++
-CFLAGS := -g -std=gnu++17
+CFLAGS := -g -std=gnu++20
 MOD1 := core
 MOD1SRC := $(patsubst $(MOD1)/%.cpp, $(MOD1)/%.o, $(wildcard $(MOD1)/*.cpp))
 MOD2 := botw
@@ -9,7 +9,7 @@ MOD2SRC += $(MOD1SRC)
 # MOD2		:= botw
 # MOD1SRC := $(patsubst %.cpp, %.o, $(wildcard ./$(MOD2)/*.cpp))
 MODS := $(MOD1) $(MOD2)
-EXEC := ./bin/cookbook
+EXEC := bin/cookbook
 SEPR := /
 
 # Windows Variants
@@ -17,7 +17,7 @@ ifeq ($(OS), Windows_NT)
 CC := c++
 RM := del
 SEPR := \\
-EXEC := .\\bin\\cookbook
+EXEC := bin\\cookbook
 endif
 
 # 
@@ -43,7 +43,7 @@ $(MOD2): $(MOD2SRC)
 	$(CC) $(CFLAGS) -c $< -o $@
 #
 clean: 
-	$(foreach d, $(MODS), $(RM) $d$(SEPR)*.o &&) true 2>&1 > /dev/null
+	$(foreach d, $(MODS), $(RM) $d$(SEPR)*.o)
 
 cleanbin:
 	$(RM) $(EXEC).exe
@@ -55,7 +55,7 @@ cleanbotw:
 	$(RM) botw$(SEPR)*.o
 
 cleanall: 
-	$(MAKE) clean
 	$(MAKE) cleanbin
+	$(MAKE) clean
 
 .PHONEY: core botw 

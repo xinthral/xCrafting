@@ -7,6 +7,8 @@
 
 class Ingredient : public xObject {
 protected:
+  enum Type { Seasoning, Protein, Produce, Craft };
+  int quantity;
 private:
 public:
   Ingredient();
