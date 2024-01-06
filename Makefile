@@ -1,6 +1,6 @@
 # 
-CC = g++
-CFLAGS := -g
+CC := g++
+CFLAGS := -g -std=gnu++20
 MOD1 := core
 MOD1SRC := $(patsubst $(MOD1)/%.cpp, $(MOD1)/%.o, $(wildcard $(MOD1)/*.cpp))
 MOD2 := botw
@@ -9,12 +9,15 @@ MOD2SRC += $(MOD1SRC)
 # MOD2		:= botw
 # MOD1SRC := $(patsubst %.cpp, %.o, $(wildcard ./$(MOD2)/*.cpp))
 MODS := $(MOD1) $(MOD2)
-EXEC := cookbook
+EXEC := bin/cookbook
+SEPR := /
 
 # Windows Variants
 ifeq ($(OS), Windows_NT)
-CC = c++
-RM = del
+CC := c++
+RM := del
+SEPR := \\
+EXEC := bin\\cookbook
 endif
 
 # 
@@ -23,22 +26,36 @@ all:
 	@echo ""
 	@echo  [core] - main cookbook
 	@echo  [botw] - Breath of the Wild
+	@echo  [cleanbin] - cleans up binaries
+	@echo  [cleancore] - cleans up the core library 
+	@echo  [cleanbotw] - cleans up the botw library 
 	@echo ""
 
 $(MOD1): $(MOD1SRC)
-	$(CC) $(CFLAGS) -c $(MOD1)/cli.c++ -o $(MOD1)/cli.o
-	$(CC) $(CFLAGS) $(MOD1)/cli.o $^ -o .\\bin\\$(EXEC).exe
+	$(CC) $(CFLAGS) -c $(MOD1)$(SEPR)cli.c++ -o $(MOD1)$(SEPR)cli.o
+	$(CC) $(CFLAGS) $(MOD1)$(SEPR)cli.o $^ -o $(EXEC).exe
 
 $(MOD2): $(MOD2SRC)
-	$(CC) $(CFLAGS) -c $(MOD2)/cli.c++ -o $(MOD2)/cli.o
-	$(CC) $(CFLAGS) $(MOD2)/cli.o $^ -o .\\bin\\$(EXEC).exe
+	$(CC) $(CFLAGS) -c $(MOD2)$(SEPR)cli.c++ -o $(MOD2)$(SEPR)cli.o
+	$(CC) $(CFLAGS) $(MOD2)$(SEPR)cli.o $^ -o $(EXEC).exe
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 #
 clean: 
-	$(RM) .\\bin\\$(EXEC).exe
-	$(RM) .\\core\\*.o 
-	$(foreach d, $(MODS), $(RM) $d\*.o &&) true 2>&1 >/dev/null
+	$(foreach d, $(MODS), $(RM) $d$(SEPR)*.o)
 
-.PHONEY: core botw
+cleanbin:
+	$(RM) $(EXEC).exe
+
+cleancore:
+	$(RM) core$(SEPR)*.o
+
+cleanbotw:
+	$(RM) botw$(SEPR)*.o
+
+cleanall: 
+	$(MAKE) cleanbin
+	$(MAKE) clean
+
+.PHONEY: core botw 
