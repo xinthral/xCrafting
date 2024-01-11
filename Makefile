@@ -1,8 +1,12 @@
 # 
 CC := g++
 CFLAGS := -g -std=gnu++2a
+
 CORE := core
 CORESRC := $(patsubst $(CORE)/%.cpp, $(CORE)/%.o, $(wildcard $(CORE)/*.cpp))
+
+TEST := test
+TESTSRC := $(patsubst $(TEST)/%.cpp, $(TEST)/%.o, $(wildcard $(TEST)/*.cpp))
 
 MOD1 := cli
 MOD1SRC := $(patsubst $(MOD1)/%.cpp, $(MOD1)/%.o, $(wildcard $(MOD1)/*.cpp))
@@ -13,7 +17,7 @@ MOD2SRC := $(patsubst $(MOD2)/%.cpp, $(MOD2)/%.o, $(wildcard $(MOD2)/*.cpp))
 MOD3 := mine
 MOD3SRC := $(patsubst $(MOD3)/%.cpp, $(MOD3)/%.o, $(wildcard $(MOD3)/*.cpp))
 
-MODS := $(CORE) $(MOD1) $(MOD2) $(MOD3)
+MODS := $(CORE) $(TEST) $(MOD1) $(MOD2) $(MOD3)
 EXEC := bin/cookbook
 SEPR := /
 
@@ -30,6 +34,7 @@ all:
 	@echo make [option]
 	@echo ""
 	@echo  [core] - main cookbook
+	@echo  [test] - test core functionality
 	@echo  [cli]  - Command Line Interface
 	@echo  [botw] - Breath of the Wild
 	@echo  [cleanbin]  - cleans up binaries
@@ -37,9 +42,12 @@ all:
 	@echo  [cleanbotw] - cleans up the botw library 
 	@echo ""
 
-build: $(CORESRC) $(MOD1SRC) $(MOD2SRC) $(MOD3SRC)
+build: $(CORESRC) $(TESTSRC) $(MOD1SRC) $(MOD2SRC) $(MOD3SRC)
 
 $(CORE): $(CORESRC)
+
+$(TEST): $(TESTSRC) $(CORESRC)
+	$(CC) $(CFLAGS) $^ -o $(EXEC)_$@.exe
 
 $(MOD1): $(MOD1SRC) $(CORESRC)
 	$(CC) $(CFLAGS) $^ -o $(EXEC)_core.exe
@@ -52,9 +60,10 @@ $(MOD3): $(MOD3SRC) $(CORESRC)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
+
 #
 clean: 
-	$(foreach d, $(MODS), $(RM) $d$(SEPR)*.o)
+	$(RM) $(foreach d, $(MODS), $d$(SEPR)*.o)
 
 cleanbin:
 	$(RM) $(EXEC)*.exe
