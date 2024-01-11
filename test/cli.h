@@ -1,9 +1,12 @@
 #ifndef XCRAFTING_TEST_H
 #define XCRAFTING_TEST_H
 
-#include "../core/cookbook.h"
-#include "../core/ingredient.h"
-#include "../core/recipe.h"
-#include "basetest.h"
+#include "cookbooktest.h"
+#include "ingredienttest.h"
+#include "recipetest.h"
+
+void TestCookBook();
+void TestIngredient();
+void TestRecipe();
 
 #endif // XCRAFTING_TEST_H //

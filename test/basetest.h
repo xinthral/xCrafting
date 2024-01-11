@@ -2,13 +2,16 @@
 #define XCRAFTING_BASETEST_H
 
 #include <stdio.h>
+#include "../core/cookbook.h"
+#include "../core/ingredient.h"
+#include "../core/recipe.h"
 
-class Basetest {
+class BaseTest {
 protected:
 private:
 public:
-  Basetest();
-  ~Basetest();
+  BaseTest();
+  ~BaseTest();
 };
 
 #endif // XCRAFTING_BASETEST_H //

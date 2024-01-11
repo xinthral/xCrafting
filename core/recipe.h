@@ -5,18 +5,12 @@
 #include "ingredient.h"
 #include "xobj.h"
 
-class Recipe : public xObject {
+class Recipe : protected xObject {
 protected:
-  struct {
-    std::string name;
-    int temperature;
-    int cooktime;
-    int preptime;
-  } Meal;
+
 private:
   std::map<std::string, Ingredient> contains;
   std::vector<std::string> instructions;
-  std::ifstream cookbook;
   int temperature;
   int cooktime;
   int preptime;

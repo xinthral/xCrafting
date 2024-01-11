@@ -1,5 +1,4 @@
 #include "basetest.h"
 
-Basetest::Basetest() {}
-
-Basetest::~Basetest() {}
+BaseTest::BaseTest() {}
+BaseTest::~BaseTest() {}

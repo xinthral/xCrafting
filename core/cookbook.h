@@ -6,11 +6,21 @@
 #include "utilz.h"
 #include "xobj.h"
 
-class CookBook {
+class CookBook : public xObject {
 protected:
+  struct {
+    std::string name;
+    int temperature;
+    int cooktime;
+    int preptime;
+  } Meal;
+
 private:
+  std::ifstream cookbook;
+
 public:
   CookBook();
+  void read_in_recipe(std::string);
   ~CookBook();
 };
 
