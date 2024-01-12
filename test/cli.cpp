@@ -14,19 +14,19 @@ int get_choice(char* input) {
 }
 
 void print_usage() {
-  printf("%s [option]\n", __FILE__);
+  printf("\n%s [option]\n", __FILE__);
 }
 
 void print_help() {
   print_usage();
-  printf("Help Options:\n");
+  printf("\nHelp Options:\n");
   printf("  -h :Display Help Menu\n");
   printf("\n");
 }
 
 int main(int argc, char *argv[], char* envp[]) {
 
-  if (argc < 2) { print_usage(); return -1; }
+  if (argc < 2) { print_help(); return -1; }
   int choice = get_choice(argv[1]);
   // if ((choice = get_choice(argv[1])) < -5) { return -1; }
   // printf("Choice: %d\n", choice);

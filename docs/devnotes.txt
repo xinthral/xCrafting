@@ -1,8 +1,8 @@
 # Recipe Book
 https://zelda.fandom.com/wiki/Food
 
-
-Name;::;<Ingredient List>;::;<Instruction List>;::;<Nested Recipe List>
+CookBooks CSV:
+Recipe Name;::;<Ingredient List>;::;<Instruction List>;::;<Nested Recipe List>
 
 <Ingredient1
  : id

@@ -14,7 +14,7 @@ void CookBookTest::caseIngestCookBook() {
   this->cookbook->read_in_recipe();
   // this->cookbook
   assert(this->cookbook->get_book_size() == 7);
-  printf("CookBook Test!\n");
+  printf("CookBook Injested Recipes Successfully!\n");
 }
 
 CookBookTest::~CookBookTest() {}
