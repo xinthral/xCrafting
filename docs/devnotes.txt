@@ -1,3 +1,18 @@
 # Recipe Book
 https://zelda.fandom.com/wiki/Food
 
+
+Name;::;<Ingredient List>;::;<Instruction List>;::;<Nested Recipe List>
+
+<Ingredient1
+ : id
+ : Name
+ : Count
+ : Type
+>
+
+<Instruction
+ : PrepTime
+ : CookTime
+ : CookTemp
+>

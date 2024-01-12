@@ -11,6 +11,7 @@ protected:
   char buf[1024];
   int xid;
   std::string name;
+
 private:
 public:
   xObject();

@@ -2,7 +2,6 @@
 
 Recipe::Recipe(int id) : xObject(id) {
   this->cooktimemax = 604,800;
-  this->setup_instructions();
 }
 
 Recipe::Recipe(int id, std::string rename) : Recipe(id) {
@@ -66,4 +65,5 @@ void Recipe::display_ingredients(bool headers) {
     std::cout << "::" << i.first << std::endl;
   }
 }
+
 Recipe::~Recipe() {}

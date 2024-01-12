@@ -1,18 +1,26 @@
 #ifndef RECIPE_H
 #define RECIPE_H
 
+#include <fstream>
 #include "ingredient.h"
 #include "xobj.h"
 
 class Recipe : public xObject {
 protected:
+  struct {
+    std::string name;
+    int temperature;
+    int cooktime;
+    int preptime;
+  } Meal;
+
+private:
   std::map<std::string, Ingredient> contains;
   std::vector<std::string> instructions;
   int temperature;
   int cooktime;
   int preptime;
   int cooktimemax;
-private:
 public:
   Recipe();
   Recipe(int);
