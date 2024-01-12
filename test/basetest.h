@@ -12,6 +12,7 @@ protected:
 private:
 public:
   BaseTest();
+  void test_all();
   ~BaseTest();
 };
 

@@ -5,7 +5,7 @@
 #include "ingredient.h"
 #include "xobj.h"
 
-class Recipe : protected xObject {
+class Recipe : public xObject {
 protected:
   struct {
     std::string name;

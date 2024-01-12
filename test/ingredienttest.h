@@ -8,6 +8,7 @@ protected:
 private:
 public:
   IngredientTest();
+  // void test_all();
   ~IngredientTest();
 };
 #endif // XCRAFTING_INGREDIENTTEST_H //
