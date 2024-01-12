@@ -1,6 +1,7 @@
 #ifndef XCRAFTING_BASETEST_H
 #define XCRAFTING_BASETEST_H
 
+#include <assert.h>
 #include <stdio.h>
 #include "../core/cookbook.h"
 #include "../core/ingredient.h"

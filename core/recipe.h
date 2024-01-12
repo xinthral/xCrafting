@@ -7,6 +7,12 @@
 
 class Recipe : protected xObject {
 protected:
+  struct {
+    std::string name;
+    int temperature;
+    int cooktime;
+    int preptime;
+  } Meal;
 
 private:
   std::map<std::string, Ingredient> contains;
@@ -29,7 +35,6 @@ public:
   void setup_instructions();
   void display_instructions(bool);
   void display_ingredients(bool);
-  void read_in_recipe(std::string);
   ~Recipe();
 };
 

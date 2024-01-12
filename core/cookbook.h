@@ -8,19 +8,17 @@
 
 class CookBook : public xObject {
 protected:
-  struct {
-    std::string name;
-    int temperature;
-    int cooktime;
-    int preptime;
-  } Meal;
 
 private:
-  std::ifstream cookbook;
+  std::string bookname;
+  std::ifstream book;
+  std::vector<Recipe> cookbook;
 
 public:
   CookBook();
-  void read_in_recipe(std::string);
+  CookBook(std::string);
+  void read_in_recipe();
+  int get_book_size();
   ~CookBook();
 };
 
