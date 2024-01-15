@@ -11,6 +11,7 @@ public:
   CookBookTest();
   void test_all();
   void caseIngestCookBook();
+  void caseCheckRegistry();
   ~CookBookTest();
 };
 

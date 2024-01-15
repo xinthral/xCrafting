@@ -13,6 +13,7 @@ private:
 public:
   Ingredient();
   Ingredient(int);
+  Ingredient(int,std::string);
   ~Ingredient();
 };
 

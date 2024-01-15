@@ -22,6 +22,10 @@ void print_help() {
   print_usage();
   printf("\nHelp Options:\n");
   printf("  -h :Display Help Menu\n");
+  printf("   0 :Test Them all\n");
+  printf("   1 :Test CookBook\n");
+  printf("   2 :Test Ingredient\n");
+  printf("   3 :Test Recipe\n");
   printf("\n");
 }
 
