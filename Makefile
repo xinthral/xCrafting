@@ -1,6 +1,6 @@
 # 
 CC := g++
-CFLAGS := -g -std=gnu++2a
+CFLAGS := -g -std=gnu++2a -l sqlite3
 
 CORE := core
 CORESRC := $(patsubst $(CORE)/%.cpp, $(CORE)/%.o, $(wildcard $(CORE)/*.cpp))
