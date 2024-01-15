@@ -13,11 +13,18 @@ private:
   std::string bookname;
   std::ifstream book;
   std::vector<Recipe> cookbook;
+  std::vector<Ingredient> registry;
 
 public:
   CookBook();
   CookBook(std::string);
   void read_in_recipe();
+  std::string parse_row(std::string);
+  std::string parse_ingredients(char*);
+  void register_ingredient(Ingredient);
+  bool check_registry(Ingredient*);
+  Ingredient get_ingredient(int);
+  Ingredient get_ingredient(std::string);
   int get_book_size();
   ~CookBook();
 };

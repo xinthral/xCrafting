@@ -21,6 +21,7 @@ private:
   int cooktime;
   int preptime;
   int cooktimemax;
+
 public:
   Recipe();
   Recipe(int);

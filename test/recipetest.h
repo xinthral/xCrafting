@@ -8,7 +8,7 @@ protected:
 private:
 public:
   RecipeTest();
-  // void test_all();
+  void test_all();
   ~RecipeTest();
 };
 
