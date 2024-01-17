@@ -6,10 +6,13 @@
 #include "../core/cookbook.h"
 #include "../core/ingredient.h"
 #include "../core/recipe.h"
-#include "../core/sql.h"
 
 class BaseTest {
 protected:
+  std::string msgHead;
+  std::string msgBody;
+  std::string msgTail;
+
 private:
 public:
   BaseTest();

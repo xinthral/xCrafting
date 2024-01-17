@@ -3,7 +3,7 @@
 void TestCookBook() { CookBookTest* book = new CookBookTest(); }
 void TestIngredient() { IngredientTest* item = new IngredientTest(); }
 void TestRecipe() { RecipeTest* steps = new RecipeTest(); }
-void TestSQL() { SQLTest* query = new SQLTest(); }
+void TestUtilz() { UtilzTest* utilz = new UtilzTest(); }
 
 int get_choice(char* input) {
   errno = 0;
@@ -26,6 +26,7 @@ void print_help() {
   printf("   1 :Test CookBook\n");
   printf("   2 :Test Ingredient\n");
   printf("   3 :Test Recipe\n");
+  printf("   4 :Test Utilz\n");
   printf("\n");
 }
 
@@ -40,6 +41,7 @@ int main(int argc, char *argv[], char* envp[]) {
       TestCookBook();
       TestIngredient();
       TestRecipe();
+      TestUtilz();
       break;
     case 1:
       TestCookBook();
@@ -49,6 +51,9 @@ int main(int argc, char *argv[], char* envp[]) {
       break;
     case 3:
       TestRecipe();
+      break;
+    case 4:
+      TestUtilz();
       break;
     default:
       printf("This is not the test you were looking for!\n");

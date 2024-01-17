@@ -18,8 +18,6 @@ private:
 public:
   CookBook();
   CookBook(std::string);
-  void read_in_recipe();
-  std::string parse_row(std::string);
   std::string parse_ingredients(char*);
   void register_ingredient(Ingredient);
   bool check_registry(Ingredient*);

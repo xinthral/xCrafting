@@ -1,6 +1,6 @@
 # 
 CC := g++
-CFLAGS := -g -std=gnu++2a -l sqlite3
+CFLAGS := -g -std=gnu++2a
 
 # Windows Variants
 ifeq ($(OS), Windows_NT)
@@ -39,6 +39,7 @@ all:
 	@echo  [cleancore] - cleans up the core library 
 	@echo  [cleanbotw] - cleans up the botw library 
 	@echo  [cleanmine] - cleans up the mine library 
+	@echo  [cleantest] - cleans up the test library 
 	@echo ""
 
 build: $(CORESRC) $(TESTSRC) $(MOD1SRC) $(MOD2SRC) $(MOD3SRC)
@@ -75,6 +76,9 @@ cleanbotw:
 
 cleanmine:
 	$(RM) mine\*.o
+	
+cleantest:
+	$(RM) test\*.o
 
 cleanall: 
 	$(MAKE) cleanbin

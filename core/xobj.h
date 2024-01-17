@@ -1,6 +1,8 @@
 #ifndef XOBJ_H
 #define XOBJ_H
 
+#define __FILENAME__ (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
+
 #include <iostream>
 #include <map>
 #include <string>

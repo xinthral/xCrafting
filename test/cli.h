@@ -9,12 +9,12 @@
 #include "cookbooktest.h"
 #include "ingredienttest.h"
 #include "recipetest.h"
-#include "sqltest.h"
+#include "utilztest.h"
 
 void TestCookBook();
 void TestIngredient();
 void TestRecipe();
-void TestSQL();
+void TestUtilz();
 
 
 int get_choice(char *);
