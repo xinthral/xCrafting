@@ -3,17 +3,18 @@
 
 #include "ingredient.h"
 #include "recipe.h"
+#include "registry.h"
 #include "utilz.h"
 #include "xobj.h"
 
 class CookBook : public xObject {
 protected:
+  xRegistry* registrar;
 
 private:
   std::string bookname;
   std::ifstream book;
   std::vector<Recipe> cookbook;
-  std::vector<Ingredient> registry;
 
 public:
   CookBook();

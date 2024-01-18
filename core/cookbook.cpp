@@ -8,14 +8,14 @@ std::string CookBook::parse_ingredients(char* ingredientlist) { return std::stri
 
 void CookBook::register_ingredient(Ingredient item) {
   if (this->check_registry(&item)) { return; }
-  this->registry.push_back(item);
+  // this->registrar.push_back(item);
 }
 
 bool CookBook::check_registry(Ingredient* item) {
-  for (std::vector<Ingredient>::iterator itr = this->registry.begin(); itr != this->registry.end(); itr++) {
-    if (itr->get_name() == item->get_name()) { return true; }
-  }
-  // std::cout << "Check_Registry: " << item->get_name() << " not found." << std::endl;
+  // for (std::vector<Ingredient>::iterator itr = this->registry.begin(); itr != this->registry.end(); itr++) {
+  //   if (itr->get_name() == item->get_name()) { return true; }
+  // }
+  std::cout << "Check_Registry: " << item->get_name() << " not found." << std::endl;
   return false;
 }
 

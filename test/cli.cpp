@@ -3,6 +3,7 @@
 void TestCookBook() { CookBookTest* book = new CookBookTest(); }
 void TestIngredient() { IngredientTest* item = new IngredientTest(); }
 void TestRecipe() { RecipeTest* steps = new RecipeTest(); }
+void TestRegistry() { RegistryTest* registrar = new RegistryTest(); }
 void TestUtilz() { UtilzTest* utilz = new UtilzTest(); }
 
 int get_choice(char* input) {
@@ -26,7 +27,8 @@ void print_help() {
   printf("   1 :Test CookBook\n");
   printf("   2 :Test Ingredient\n");
   printf("   3 :Test Recipe\n");
-  printf("   4 :Test Utilz\n");
+  printf("   4 :Test Registry\n");
+  printf("   5 :Test Utilz\n");
   printf("\n");
 }
 
@@ -41,6 +43,7 @@ int main(int argc, char *argv[], char* envp[]) {
       TestCookBook();
       TestIngredient();
       TestRecipe();
+      TestRegistry();
       TestUtilz();
       break;
     case 1:
@@ -53,6 +56,9 @@ int main(int argc, char *argv[], char* envp[]) {
       TestRecipe();
       break;
     case 4:
+      TestRegistry();
+      break;
+    case 5:
       TestUtilz();
       break;
     default:

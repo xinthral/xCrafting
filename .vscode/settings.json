@@ -66,6 +66,21 @@
     "queue": "cpp",
     "ranges": "cpp",
     "span": "cpp",
-    "xhash": "cpp"
+    "xhash": "cpp",
+    "charconv": "cpp",
+    "chrono": "cpp",
+    "format": "cpp",
+    "forward_list": "cpp",
+    "iomanip": "cpp",
+    "locale": "cpp",
+    "mutex": "cpp",
+    "ratio": "cpp",
+    "regex": "cpp",
+    "stop_token": "cpp",
+    "thread": "cpp",
+    "xlocbuf": "cpp",
+    "xlocmes": "cpp",
+    "xlocmon": "cpp",
+    "xloctime": "cpp"
   }
 }

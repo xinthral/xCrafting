@@ -5,19 +5,23 @@
 #include "ingredient.h"
 #include "xobj.h"
 
+// Recipe_Name;
+// UUID;
+// Recipe Name;
+// PrepTime(minutes);
+// CookTime(minutes);
+// CookType;
+// CookTemp;
+// Ingredient List: UUID,#,Volume|...;
+// Nested Recipe List: UUID,#,Volume|...;
+// Instruction List: Do thing1, Do thing2, thing3, consume!|...;
+
 class Recipe : public xObject {
 protected:
-  struct {
-    std::string name;
-    int temperature;
-    int cooktime;
-    int preptime;
-  } Meal;
-
 private:
   std::map<std::string, Ingredient> contains;
   std::vector<std::string> instructions;
-  int temperature;
+  std::string cooktemp;
   int cooktime;
   int preptime;
   int cooktimemax;
@@ -30,10 +34,12 @@ public:
   int insert_ingredient(std::string,Ingredient); 
   int remove_ingredient(std::string);
   void set_cooktime(int);
+  void set_cooktemp(std::string);
   void set_preptime(int);
   int get_cooktime();
+  std::string get_cooktemp();
   int get_preptime();
-  void setup_instructions();
+  void user_input_instructions();
   void display_instructions(bool);
   void display_ingredients(bool);
   ~Recipe();

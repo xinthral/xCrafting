@@ -9,13 +9,14 @@
 #include "cookbooktest.h"
 #include "ingredienttest.h"
 #include "recipetest.h"
+#include "registrytest.h"
 #include "utilztest.h"
 
 void TestCookBook();
 void TestIngredient();
 void TestRecipe();
+void TestRegistry();
 void TestUtilz();
-
 
 int get_choice(char *);
 void print_usage();
