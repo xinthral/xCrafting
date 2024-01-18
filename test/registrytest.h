@@ -12,6 +12,7 @@ public:
   RegistryTest();
   void test_all();
   void test_ingestIngredients();
+  void test_ingestRecipes();
   ~RegistryTest();
 };
 

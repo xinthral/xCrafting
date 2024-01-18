@@ -1,11 +1,15 @@
 # 
 CC := g++
 CFLAGS := -g -std=gnu++2a
+EXEC := bin/cookbook
+NULL := /dev/null
 
 # Windows Variants
 ifeq ($(OS), Windows_NT)
 CC := c++
 RM := del
+EXEC := bin\\cookbook
+NULL := NUL
 endif
 
 # Source File Peperation
@@ -25,7 +29,6 @@ MOD3 := mine
 MOD3SRC := $(patsubst $(MOD3)/%.cpp, $(MOD3)/%.o, $(wildcard $(MOD3)/*.cpp))
 
 MODS := $(CORE) $(TEST) $(MOD1) $(MOD2) $(MOD3)
-EXEC := .\bin\cookbook
 
 # Make Directives
 all:
@@ -61,12 +64,12 @@ $(MOD3): $(MOD3SRC) $(CORESRC)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-#
+# Clean Directives
 clean: 
-	$(RM) $(foreach d, $(MODS), .\\$d\\*.o) 2>NUL
+	$(RM) $(foreach d, $(MODS), ./$d/*.o) 2>$(NULL)
 
 cleanbin:
-	$(RM) $(EXEC)_*.exe 2>NUL
+	$(RM) $(EXEC)_*.exe 2>$(NULL)
 
 cleancore:
 	$(RM) core\*.o

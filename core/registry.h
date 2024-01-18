@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <string>
 #include <vector>
 #include "ingredient.h"
@@ -26,6 +27,7 @@ private:
   std::ifstream registrar;
   std::vector<Ingredient> ingredients;
   std::vector<Recipe> recipes;
+  std::map<std::string,std::string> ingMap;
 
 public:
   xRegistry();
@@ -34,7 +36,6 @@ public:
   std::string parse_ingredient(std::string);
   std::string parse_recipe(std::string);
   std::string parse_raw(std::string);
-  std::string parse_elements(std::string);
   ~xRegistry();
 };
 
