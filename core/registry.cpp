@@ -69,7 +69,7 @@ void xRegistry::parse_recipe(std::string row) {
     if (token != NULL) { output += ";::;"; }
     step++;
   }
-  printf("Recipe: %s\n", output.c_str());
+  // printf("Recipe: %s\n", output.c_str());
 }
 
 void xRegistry::parse_ingredient(std::string row) {
@@ -99,7 +99,7 @@ void xRegistry::parse_ingredient(std::string row) {
   Ingredient ing(uuid, iname, 1, itype);
   ing.set_location(loc);
   this->add_ingredient(ing);
-  printf("Ingredient: %s\n", output.c_str());
+  // printf("Ingredient: %s\n", output.c_str());
 }
 
 std::string xRegistry::parse_raw(std::string row) {
