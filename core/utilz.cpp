@@ -1,42 +1,16 @@
-/*!
- * @class   Utilz utilz.h utilz.cpp
- * @brief   Utility functions I find useful.
-*/
 #include "utilz.h"
 
-/*!
- * @def     __FILENAME__ 
- * @brief   Translate Filename to reusable macro
-*/
-#define __FILENAME__ (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
-
-/*!
- * @brief   Strips away the file extension 
- * @param[in] __FILE__ - the file extension
- * @return   A new string with the tld stripped.
-*/
 std::string Utilz::FileName(const char* file) {
   std::string fileName = file;
   size_t pos = fileName.find(".");
   return fileName.substr(0, pos);
 }
 
-/*!
- * @brief   Truncating method to strip away file extension 
- * @param[in] length   - Size of return string
- * @param[in] __FILE__ - the file extension
- * @return   A new string containing a truncated Filename 
-*/
 std::string Utilz::FileName(int length, const char* file) {
   std::string output = Utilz::FileName(file);
   return Utilz::HeadString(length, output);
 }
 
-/*!
- * @brief   Formatted Timestamp for uniformity
- * @return  A string containing the time in a pre-formatted
- *          way.
-*/
 std::string Utilz::TimeStamp() {
   std::time_t time = std::time({});
   char output[std::size("ddd mmm dd hh:mm:ss")];
@@ -50,12 +24,6 @@ std::string Utilz::TimeStamp() {
   return output;
 }
 
-/*!
- * @brief   Converts a string containing multiple words into
- *          into an array of strings.
- * @param[in]   input - String to be parsed
- * @param[out] output - Vector of strings to put parsed words  
-*/
 void Utilz::StringToArray(std::string input, std::vector<std::string>& output) {
   char* token = strtok(const_cast<char*>(input.c_str()), " \r\n");
   while (token != NULL) {
@@ -64,24 +32,12 @@ void Utilz::StringToArray(std::string input, std::vector<std::string>& output) {
   }
 }
 
-/*!
- * @brief   Truncates a string from the beginning of a string
- * @param[in] length  - Size of return string
- * @param[in] message - String to be truncated
- * @return  A new string truncated from the front 
-*/
 std::string Utilz::HeadString(int length, std::string input) {
   std::string output = input;
   output.resize(length);
   return output;
 }
 
-/*!
- * @brief   Truncates a string from the ending of a string
- * @param[in] length  - Size of return string
- * @param[in] message - String to be truncated
- * @return  A new string truncated from the back
-*/
 std::string Utilz::TailString(int length, std::string input) {
   std::string output;
   size_t l = input.size() - length;
@@ -89,18 +45,11 @@ std::string Utilz::TailString(int length, std::string input) {
   return output;
 }
 
-/*!
- * @brief   Removes whitespace from string
- * @param[in] message - String to be crunched
-*/
 void Utilz::Strip(std::string& input) {
   std::string::iterator pos = std::remove(input.begin(), input.end(), ' ');
   input.erase(pos, input.end());
 }
 
-/*!
- * @brief   Returns Randomly generated string
-*/
 std::string Utilz::randomString(int length) {
   std::srand(std::time({}));
   std::string lexigraph = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
@@ -111,4 +60,20 @@ std::string Utilz::randomString(int length) {
     output += lexigraph[idx];
   }
   return output;
+}
+
+std::string Utilz::get_uuid() {
+  const char *hex = "0123456789AaBbCcDdEeFf";
+  const bool formatted[] = { 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0 };
+  std::string newuuid;
+  std::random_device dev;
+  std::mt19937 rng(dev());
+  std::uniform_int_distribution<int> dist(0, 21);
+
+  for (int i = 0; i < 16; i++) {
+      if (formatted[i]) newuuid += "-";
+      newuuid += hex[dist(rng)];
+      newuuid += hex[dist(rng)];
+  }
+  return newuuid ;
 }

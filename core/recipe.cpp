@@ -1,21 +1,14 @@
 #include "recipe.h"
 
-Recipe::Recipe(int id) : xObject(id) {
-  this->cooktimemax = 604,800;
-}
+Recipe::Recipe() : xObject() {}
+Recipe::Recipe(std::string id) : xObject(id) { this->cooktimemax = 604,800; }
+Recipe::Recipe(std::string id, std::string name) : xObject(id, name) { }
 
-Recipe::Recipe(int id, std::string rename) : Recipe(id) {
-  this->set_name(rename);
-}
-
-Recipe::Recipe() : Recipe(-1) { }
 
 int Recipe::ingredient_count() { return contains.size(); }
-
 int Recipe::insert_ingredient(std::string key, Ingredient ing) { contains[key] = ing; return this->ingredient_count(); }
-
 int Recipe::remove_ingredient(std::string key) { contains.erase(key); return this->ingredient_count(); }
-
+void Recipe::set_cooktemp(std::string temp) { this->cooktemp = temp; }
 void Recipe::set_cooktime(int cooktime) {
   if (cooktime < 0 || cooktime > this->cooktimemax) { printf("Invalid cooktime: %d\n", cooktime); }
   else { this->cooktime = cooktime; }
@@ -26,10 +19,9 @@ void Recipe::set_preptime(int preptime) {
   else { this->preptime = preptime; }
 }
 
+std::string Recipe::get_cooktemp() { return this->cooktemp; }
 int Recipe::get_cooktime() { return this->cooktime; }
-
 int Recipe::get_preptime() { return this->preptime; }
-
 void Recipe::display_instructions(bool both) {
   if (both) {
     std::cout << "  The Cooktime is: " << this->cooktime << std::endl;
@@ -41,7 +33,7 @@ void Recipe::display_instructions(bool both) {
   }
 }
 
-void Recipe::setup_instructions() {
+void Recipe::user_input_instructions() {
   std::string input = this->name + " Cooking Instructions!";
   int idx = 1;
   while (input.rfind("!exit") != 0) {
@@ -60,10 +52,6 @@ void Recipe::setup_instructions() {
   }
 }
 
-void Recipe::display_ingredients(bool headers) {
-  for (auto i : this->contains) {
-    std::cout << "::" << i.first << std::endl;
-  }
-}
+void Recipe::display_ingredients(bool headers) { for (auto i : this->contains) { std::cout << "::" << i.first << std::endl; } }
 
 Recipe::~Recipe() {}

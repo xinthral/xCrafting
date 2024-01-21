@@ -1,25 +1,24 @@
 #include "cookbook.h"
 
-CookBook::CookBook() { }
+CookBook::CookBook() : xObject() {}
 
-CookBook::CookBook(std::string filename) : bookname(filename) { }
+CookBook::CookBook(std::string filename) : bookname(filename) {}
 
-void CookBook::read_in_recipe() {
-  char* token;
-  std::string row, output;
-  this->book.open(("docs/" + this->bookname + ".rb"));
-  int step = -1;
-  while (std::getline(book, row)) {
-    std::cout << "Row: " << row.c_str() << std::endl;
-    token = strtok(const_cast<char*>(row.c_str()), ";::;\r\n");
-    // std::cout << step << ": " << token << std::endl;
-    this->cookbook.push_back(Recipe(step, token));
-    while (token != NULL) {
-      token = strtok(NULL, ";::;\r\n");
-    }
-    step--;
-  }
+void CookBook::register_ingredient(Ingredient item) {
+  if (this->check_registry(&item)) { return; }
+  // this->registrar.push_back(item);
 }
+
+bool CookBook::check_registry(Ingredient* item) {
+  // for (std::vector<Ingredient>::iterator itr = this->registry.begin(); itr != this->registry.end(); itr++) {
+  //   if (itr->get_name() == item->get_name()) { return true; }
+  // }
+  std::cout << "Check_Registry: " << item->get_name() << " not found." << std::endl;
+  return false;
+}
+
+Ingredient CookBook::get_ingredient_by_name(std::string name) { return Ingredient(); }
+Ingredient CookBook::get_ingredient_by_uuid(std::string uuid) { return Ingredient(); }
 
 int CookBook::get_book_size() { return this->cookbook.size(); }
 

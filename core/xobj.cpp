@@ -3,33 +3,27 @@
 /*!
  * @brief   Default Constructor
 */
-xObject::xObject() { this->name = Utilz::randomString(6); }
-
-/*!
- * @brief   
-*/
-xObject::xObject(int id) : xObject() { 
-  if (id >= 0) { printf("Internal ID Must be < 0: %d\n", this->xid); exit(-1); }
-  int r = this->set_xid(id);
-  if (r != id) { printf("ID Input Failure: %d\n", r); exit(-1); }
+xObject::xObject() { 
+  this->set_xid(Utilz::get_uuid());
+  this->set_name(Utilz::randomString(6));
 }
 
-/*!
- * @brief   
-*/
-xObject::xObject(int id, std::string rename) :xObject(id) {
+xObject::xObject(std::string id) { 
+  if (id.empty()) { printf("Internal UUID cannot be NULL: %s\n", this->xid.c_str()); exit(-1); }
+  std::string r = this->set_xid(id);
+  if (strcmp(r.c_str(), id.c_str()) != 0) { printf("ID Input Failure: %s\n", r.c_str()); exit(-1); }
+  this->set_name(Utilz::randomString(6));
+}
+
+xObject::xObject(std::string id, std::string name) {
   this->set_xid(id);
-  this->set_name(rename);
+  this->set_name(name);
 }
 
-/*!
- * @brief   
-*/
-size_t xObject::set_name(std::string rename) { this->name = rename; return this->name.size(); }
 std::string xObject::get_name() { return this->name; }
-
-int xObject::get_xid() { return this->xid; }
-int xObject::set_xid(int id) { this->xid = id; return this->xid; }
+size_t xObject::set_name(std::string rename) { this->name = rename; return this->name.size(); }
+std::string xObject::get_xid() { return this->xid; }
+std::string xObject::set_xid(std::string id) { this->xid = id; return this->xid; }
 
 /*!
  * @brief   Default Deconstructor
