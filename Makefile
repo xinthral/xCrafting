@@ -3,6 +3,7 @@ CC := g++
 CFLAGS := -g -std=gnu++2a
 EXEC := bin/cookbook
 NULL := /dev/null
+SEPR := /*
 
 # Windows Variants
 ifeq ($(OS), Windows_NT)
@@ -10,6 +11,7 @@ CC := c++
 RM := del
 EXEC := bin\\cookbook
 NULL := NUL
+SEPR := \\*
 endif
 
 # Source File Peperation
@@ -66,22 +68,22 @@ $(MOD3): $(MOD3SRC) $(CORESRC)
 
 # Clean Directives
 clean: 
-	$(RM) $(foreach d, $(MODS), ./$d/*.o) 2>$(NULL)
+	$(RM) $(foreach d, $(MODS), $d$(SEPR).o) 2>$(NULL)
 
 cleanbin:
 	$(RM) $(EXEC)_*.exe 2>$(NULL)
 
 cleancore:
-	$(RM) core\*.o
+	$(RM) core$(SEPR).o
 
 cleanbotw:
-	$(RM) botw\*.o
+	$(RM) botw$(SEPR).o
 
 cleanmine:
-	$(RM) mine\*.o
+	$(RM) mine$(SEPR).o
 	
 cleantest:
-	$(RM) test\*.o
+	$(RM) test$(SEPR).o
 
 cleanall: 
 	$(MAKE) cleanbin

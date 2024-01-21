@@ -11,18 +11,18 @@
 class xObject {
 protected:
   char buf[1024];
-  int xid;
+  std::string xid;
   std::string name;
 
 private:
 public:
   xObject();
-  xObject(int);
-  xObject(int,std::string);
+  xObject(std::string);
+  xObject(std::string,std::string);
   size_t set_name(std::string);
   std::string get_name();
-  int get_xid();
-  int set_xid(int);
+  std::string get_xid();
+  std::string set_xid(std::string);
   ~xObject();
 };
 

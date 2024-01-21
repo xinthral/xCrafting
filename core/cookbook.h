@@ -19,11 +19,10 @@ private:
 public:
   CookBook();
   CookBook(std::string);
-  std::string parse_ingredients(char*);
   void register_ingredient(Ingredient);
   bool check_registry(Ingredient*);
-  Ingredient get_ingredient(int);
-  Ingredient get_ingredient(std::string);
+  Ingredient get_ingredient_by_name(std::string);
+  Ingredient get_ingredient_by_uuid(std::string);
   int get_book_size();
   ~CookBook();
 };
