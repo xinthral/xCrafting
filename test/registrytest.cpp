@@ -1,7 +1,7 @@
 #include "registrytest.h"
 
-RegistryTest::RegistryTest() { 
-  printf("Testing the Registry Functionality!\n");
+RegistryTest::RegistryTest() : BaseTest() { 
+  printf("\nTesting the Registry Functionality!\n");
   this->msgHead = "Tested";
   this->msgTail = "from the Registrar!";
 

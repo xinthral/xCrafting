@@ -6,8 +6,8 @@
 */
 #define __FILENAME__ (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
 
-UtilzTest::UtilzTest() {
-  printf("Testing the Utilz Functionality!\n");
+UtilzTest::UtilzTest() : BaseTest() {
+  printf("\nTesting the Utilz Functionality!\n");
   this->msgHead = "Tested";
   this->msgTail = "for Utilz!";
   this->test_all();
@@ -23,7 +23,7 @@ void UtilzTest::test_StringToArray() {
   std::string testline = "this is a test";
   std::vector<std::string> cmds;
   Utilz::StringToArray(testline, cmds);
-  assert(cmds.size() == 4);
+  assert(4 == cmds.size());
   printf("%s [%s] %s\n", msgHead.c_str(), "StringToArray", msgTail.c_str());
 }
 
@@ -31,7 +31,7 @@ void UtilzTest::test_StringToArray_TrailingSpace() {
   std::string testline = "this is a test ";
   std::vector<std::string> cmds;
   Utilz::StringToArray(testline, cmds);
-  assert(cmds.size() == 4);
+  assert(4 == cmds.size());
   printf("%s [%s] %s\n", msgHead.c_str(), "StringToArray Trailing Space", msgTail.c_str());
 }
 

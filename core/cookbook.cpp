@@ -1,10 +1,8 @@
 #include "cookbook.h"
 
-CookBook::CookBook() { }
+CookBook::CookBook() : xObject() {}
 
-CookBook::CookBook(std::string filename) : bookname(filename) { }
-
-std::string CookBook::parse_ingredients(char* ingredientlist) { return std::string("yoyo"); }
+CookBook::CookBook(std::string filename) : bookname(filename) {}
 
 void CookBook::register_ingredient(Ingredient item) {
   if (this->check_registry(&item)) { return; }
@@ -19,9 +17,8 @@ bool CookBook::check_registry(Ingredient* item) {
   return false;
 }
 
-Ingredient CookBook::get_ingredient(int index) { return Ingredient(); }
-
-Ingredient CookBook::get_ingredient(std::string name) { return Ingredient(); }
+Ingredient CookBook::get_ingredient_by_name(std::string name) { return Ingredient(); }
+Ingredient CookBook::get_ingredient_by_uuid(std::string uuid) { return Ingredient(); }
 
 int CookBook::get_book_size() { return this->cookbook.size(); }
 

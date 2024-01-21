@@ -9,6 +9,10 @@ private:
 public:
   IngredientTest();
   void test_all();
+  void test_newIngredientName();
+  void test_newIngredientUUID();
+  void test_newIngredientType();
+  void test_newIngredientQuantity();
   ~IngredientTest();
 };
 #endif // XCRAFTING_INGREDIENTTEST_H //

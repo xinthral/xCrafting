@@ -8,19 +8,20 @@
 #include <vector>
 #include "ingredient.h"
 #include "recipe.h"
+#include "xobj.h"
 
-// Recipe_Name;
-// UUID;
-// Recipe Name;
-// PrepTime(?1);
-// CookTime(?1);
-// CookType;
-// CookTemp;
-// Ingredient List: UUID,#,Volume|...;
-// Nested Recipe List: UUID,#,Volume|...;
-// Instruction List: Do thing1, Do thing2, thing3, consume!|...;
-
-class xRegistry {
+/*
+1: UUID;
+2: RecipeName;
+3: PrepTime;
+4: CookTime;
+5: CookType;
+6: CookTemp;
+7: IngredientUUID|#Count|Volume,...;
+8: RecipeUUID|#Count|Volume,...;
+9: Instr1|...; 
+*/
+class xRegistry : xObject {
 protected:
 private:
   std::fstream fin;
@@ -32,10 +33,15 @@ private:
 public:
   xRegistry();
   xRegistry(std::string);
+  int get_itype_index(std::string);
   void parse_csv(int,std::string);
-  std::string parse_ingredient(std::string);
-  std::string parse_recipe(std::string);
+  void parse_ingredient(std::string);
+  void parse_recipe(std::string);
   std::string parse_raw(std::string);
+  bool add_ingredient(Ingredient);
+  bool verify_ingredient(Ingredient);
+  bool add_recipe(Recipe);
+  bool verify_recipe(Recipe);
   ~xRegistry();
 };
 

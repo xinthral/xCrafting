@@ -28,8 +28,8 @@ private:
 
 public:
   Recipe();
-  Recipe(int);
-  Recipe(int,std::string);
+  Recipe(std::string);
+  Recipe(std::string,std::string);
   int ingredient_count();
   int insert_ingredient(std::string,Ingredient); 
   int remove_ingredient(std::string);
