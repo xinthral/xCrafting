@@ -1,7 +1,20 @@
 # 
 CC := g++
 CFLAGS := -g -std=gnu++2a
+EXEC := bin/cookbook
+NULL := /dev/null
+SEPR := /*
 
+# Windows Variants
+ifeq ($(OS), Windows_NT)
+CC := c++
+RM := del
+EXEC := bin\\cookbook
+NULL := NUL
+SEPR := \\*
+endif
+
+# Source File Peperation
 CORE := core
 CORESRC := $(patsubst $(CORE)/%.cpp, $(CORE)/%.o, $(wildcard $(CORE)/*.cpp))
 
@@ -18,18 +31,8 @@ MOD3 := mine
 MOD3SRC := $(patsubst $(MOD3)/%.cpp, $(MOD3)/%.o, $(wildcard $(MOD3)/*.cpp))
 
 MODS := $(CORE) $(TEST) $(MOD1) $(MOD2) $(MOD3)
-EXEC := bin/cookbook
-SEPR := /
 
-# Windows Variants
-ifeq ($(OS), Windows_NT)
-CC := c++
-RM := del
-SEPR := \\
-EXEC := bin\\cookbook
-endif
-
-# 
+# Make Directives
 all:
 	@echo make [option]
 	@echo ""
@@ -40,6 +43,8 @@ all:
 	@echo  [cleanbin]  - cleans up binaries
 	@echo  [cleancore] - cleans up the core library 
 	@echo  [cleanbotw] - cleans up the botw library 
+	@echo  [cleanmine] - cleans up the mine library 
+	@echo  [cleantest] - cleans up the test library 
 	@echo ""
 
 build: $(CORESRC) $(TESTSRC) $(MOD1SRC) $(MOD2SRC) $(MOD3SRC)
@@ -61,21 +66,24 @@ $(MOD3): $(MOD3SRC) $(CORESRC)
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-#
+# Clean Directives
 clean: 
-	$(RM) $(foreach d, $(MODS), $d$(SEPR)*.o)
+	$(RM) $(foreach d, $(MODS), $d$(SEPR).o) 2>$(NULL)
 
 cleanbin:
-	$(RM) $(EXEC)*.exe
+	$(RM) $(EXEC)_*.exe 2>$(NULL)
 
 cleancore:
-	$(RM) core$(SEPR)*.o
+	$(RM) core$(SEPR).o
 
 cleanbotw:
-	$(RM) botw$(SEPR)*.o
+	$(RM) botw$(SEPR).o
 
 cleanmine:
-	$(RM) mine$(SEPR)*.o
+	$(RM) mine$(SEPR).o
+	
+cleantest:
+	$(RM) test$(SEPR).o
 
 cleanall: 
 	$(MAKE) cleanbin

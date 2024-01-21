@@ -3,6 +3,8 @@
 void TestCookBook() { CookBookTest* book = new CookBookTest(); }
 void TestIngredient() { IngredientTest* item = new IngredientTest(); }
 void TestRecipe() { RecipeTest* steps = new RecipeTest(); }
+void TestRegistry() { RegistryTest* registrar = new RegistryTest(); }
+void TestUtilz() { UtilzTest* utilz = new UtilzTest(); }
 
 int get_choice(char* input) {
   errno = 0;
@@ -14,19 +16,25 @@ int get_choice(char* input) {
 }
 
 void print_usage() {
-  printf("%s [option]\n", __FILE__);
+  printf("\n%s [option]\n", __FILE__);
 }
 
 void print_help() {
   print_usage();
-  printf("Help Options:\n");
+  printf("\nHelp Options:\n");
   printf("  -h :Display Help Menu\n");
+  printf("   0 :Test Them all\n");
+  printf("   1 :Test CookBook\n");
+  printf("   2 :Test Ingredient\n");
+  printf("   3 :Test Recipe\n");
+  printf("   4 :Test Registry\n");
+  printf("   5 :Test Utilz\n");
   printf("\n");
 }
 
 int main(int argc, char *argv[], char* envp[]) {
 
-  if (argc < 2) { print_usage(); return -1; }
+  if (argc < 2) { print_help(); return -1; }
   int choice = get_choice(argv[1]);
   // if ((choice = get_choice(argv[1])) < -5) { return -1; }
   // printf("Choice: %d\n", choice);
@@ -35,6 +43,8 @@ int main(int argc, char *argv[], char* envp[]) {
       TestCookBook();
       TestIngredient();
       TestRecipe();
+      TestRegistry();
+      TestUtilz();
       break;
     case 1:
       TestCookBook();
@@ -44,6 +54,12 @@ int main(int argc, char *argv[], char* envp[]) {
       break;
     case 3:
       TestRecipe();
+      break;
+    case 4:
+      TestRegistry();
+      break;
+    case 5:
+      TestUtilz();
       break;
     default:
       printf("This is not the test you were looking for!\n");
