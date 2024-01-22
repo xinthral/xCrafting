@@ -12,9 +12,9 @@
 // CookTime(minutes);
 // CookType;
 // CookTemp;
-// Ingredient List: UUID,#,Volume|...;
-// Nested Recipe List: UUID,#,Volume|...;
-// Instruction List: Do thing1, Do thing2, thing3, consume!|...;
+// Ingredient List: UUID|#|Volume,...;
+// Nested Recipe List: UUID|#|Volume,...;
+// Instruction List: Do thing1|Do thing2|Do thing3|consume!|...;
 
 class Recipe : public xObject {
 protected:
@@ -39,6 +39,7 @@ public:
   int get_cooktime();
   std::string get_cooktemp();
   int get_preptime();
+  void set_instructions(std::vector<std::string>);
   void user_input_instructions();
   void display_instructions(bool);
   void display_ingredients(bool);

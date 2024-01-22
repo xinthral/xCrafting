@@ -13,6 +13,8 @@ public:
   void test_all();
   void test_ingestIngredients();
   void test_ingestRecipes();
+  void test_verificationIngredient();
+  void test_verificationRecipe();
   ~RegistryTest();
 };
 

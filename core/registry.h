@@ -17,8 +17,8 @@
 4: CookTime;
 5: CookType;
 6: CookTemp;
-7: IngredientUUID|#Count|Volume,...;
-8: RecipeUUID|#Count|Volume,...;
+7: IngredientUUID|#|Count|Volume,...;
+8: RecipeUUID|#|Count|Volume,...;
 9: Instr1|...; 
 */
 class xRegistry : xObject {
@@ -37,11 +37,16 @@ public:
   void parse_csv(int,std::string);
   void parse_ingredient(std::string);
   void parse_recipe(std::string);
+  void parse_ingredient_from_recipe(std::string,std::vector<std::string>&);
+  void parse_nested_from_recipe(std::string,std::vector<std::string>&);
+  void parse_instructions_from_recipe(std::string,std::vector<std::string>&);
   std::string parse_raw(std::string);
   bool add_ingredient(Ingredient);
   bool verify_ingredient(Ingredient);
   bool add_recipe(Recipe);
   bool verify_recipe(Recipe);
+  void display_ingredients();
+  void display_recipes();
   ~xRegistry();
 };
 
