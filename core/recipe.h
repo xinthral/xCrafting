@@ -19,7 +19,7 @@
 class Recipe : public xObject {
 protected:
 private:
-  std::map<std::string, Ingredient> contains;
+  std::map<std::string, std::string> contains;
   std::vector<std::string> instructions;
   std::string cooktemp;
   int cooktime;
@@ -31,11 +31,13 @@ public:
   Recipe(std::string);
   Recipe(std::string,std::string);
   int ingredient_count();
-  int insert_ingredient(std::string,Ingredient); 
+  int insert_ingredient(std::string,std::string); 
   int remove_ingredient(std::string);
+  void set_ingredients(std::vector<std::string>);
   void set_cooktime(int);
   void set_cooktemp(std::string);
   void set_preptime(int);
+  void set_nested_recipes(std::vector<std::string>);
   int get_cooktime();
   std::string get_cooktemp();
   int get_preptime();

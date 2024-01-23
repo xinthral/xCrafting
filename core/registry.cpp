@@ -92,8 +92,8 @@ void xRegistry::parse_recipe(std::string row) {
   rec.set_cooktime(ctimei);
   rec.set_cooktemp(ctemp);
   // FIXME: the follow need to be made
-  // rec.set_ingredients(ingr);
-  // rec.set_nested_recipes(recp);
+  rec.set_ingredients(ingr);
+  rec.set_nested_recipes(recp);
   rec.set_instructions(inst);
   this->add_recipe(rec);
 }

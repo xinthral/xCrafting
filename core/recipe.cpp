@@ -4,11 +4,22 @@ Recipe::Recipe() : xObject() { this->cooktimemax = 604,800; }
 Recipe::Recipe(std::string id) : xObject(id) { this->cooktimemax = 604,800; }
 Recipe::Recipe(std::string id, std::string name) : xObject(id, name) { this->cooktimemax = 604,800; }
 
-
 int Recipe::ingredient_count() { return contains.size(); }
-int Recipe::insert_ingredient(std::string key, Ingredient ing) { contains[key] = ing; return this->ingredient_count(); }
-int Recipe::remove_ingredient(std::string key) { contains.erase(key); return this->ingredient_count(); }
+
+int Recipe::insert_ingredient(std::string uuid, std::string ingredient) { contains[uuid] = ingredient; return this->ingredient_count(); }
+
+int Recipe::remove_ingredient(std::string uuid) { contains.erase(uuid); return this->ingredient_count(); }
+
+void Recipe::set_ingredients(std::vector<std::string> ingredientlist) {
+  char* token;
+  for (auto ing : ingredientlist) { 
+    token = strtok(const_cast<char*>(ing.c_str()), ";\r\n");
+    this->contains[token] = ing;
+  }
+}
+
 void Recipe::set_cooktemp(std::string temp) { this->cooktemp = temp; }
+
 void Recipe::set_cooktime(int newtime) {
   if (newtime < 0 || newtime > this->cooktimemax) { printf("Invalid cooktime: %d\n", newtime); }
   else { this->cooktime = newtime; }
@@ -19,10 +30,22 @@ void Recipe::set_preptime(int preptime) {
   else { this->preptime = preptime; }
 }
 
+void Recipe::set_nested_recipes(std::vector<std::string> recipelist) {
+  char* token;
+  for (auto rec : recipelist) {
+    token = strtok(const_cast<char*>(rec.c_str()), ";\r\n");
+    this->contains[token] = rec;
+  }
+}
+
 std::string Recipe::get_cooktemp() { return this->cooktemp; }
+
 int Recipe::get_cooktime() { return this->cooktime; }
+
 int Recipe::get_preptime() { return this->preptime; }
+
 void Recipe::set_instructions(std::vector<std::string> input) { for (auto itr : input) { this->instructions.push_back(itr); }}
+
 void Recipe::display_instructions(bool both) {
   if (both) {
     std::cout << "  The Cooktime is: " << this->cooktime << std::endl;
@@ -53,6 +76,6 @@ void Recipe::user_input_instructions() {
   }
 }
 
-void Recipe::display_ingredients(bool headers) { for (auto i : this->contains) { std::cout << "::" << i.first << std::endl; } }
+void Recipe::display_ingredients(bool headers) { for (auto i : this->contains) { printf("::%s\n", i.first); } }
 
 Recipe::~Recipe() {}
