@@ -198,6 +198,7 @@ bool xRegistry::verify_recipe(Recipe recipe) {
 void xRegistry::display_ingredients() {
   std::string s;
   int t, l, r;
+  printf("\n");
   for (auto itr : this->ingredients) {
     s = itr.get_name();
     t = s.length();
@@ -205,11 +206,13 @@ void xRegistry::display_ingredients() {
     r = 32 - l;
     printf("[[]%*s%*s[]]\n", l, s.c_str(), r, "");
   }
+  printf("\n");
 }
 
 void xRegistry::display_recipes() {
   std::string s;
   int t, l, r;
+  printf("\n");
   for (auto itr : this->recipes) {
     s = itr.get_name();
     t = s.length();
@@ -217,6 +220,7 @@ void xRegistry::display_recipes() {
     r = 32 - l;
     printf("[[]%*s%*s[]]\n", l, s.c_str(), r, "");
   }
+  printf("\n");
 }
 
 xRegistry::~xRegistry() {}

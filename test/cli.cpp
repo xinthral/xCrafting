@@ -16,7 +16,7 @@ int get_choice(char* input) {
 }
 
 void print_usage() {
-  printf("\n%s [option]\n", __FILE__);
+  printf("\nUsage: bin/cookbook_%s.exe [option]\n", "test");
 }
 
 void print_help() {

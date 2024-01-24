@@ -7,4 +7,16 @@
 #include "../core/recipe.h"
 #include "../core/registry.h"
 
+class CommandLine {
+protected:
+private:
+  xRegistry* registrar;
+
+public:
+  CommandLine();
+  void display_ingredients();
+  void display_recipes();
+  ~CommandLine();
+};
+
 #endif // XCRAFTING_CLI_H //

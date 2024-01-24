@@ -1,6 +1,6 @@
 #include "cli.h"
 
 int main(int argc, char const *argv[]) {
-  Ingredient* ing = new Ingredient(-1);
+  Ingredient ing(Utilz::get_uuid());
   return 0;
 }
