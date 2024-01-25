@@ -173,11 +173,13 @@ std::string xRegistry::parse_raw(std::string row) {
 }
 
 bool xRegistry::add_ingredient(Ingredient ingredient) {
+  // Add Ingredient if it doesn't already exist
   if (this->verify_ingredient(ingredient)) { this->ingredients.push_back(ingredient); return true; }
   return false;
 }
 
 bool xRegistry::verify_ingredient(Ingredient ingredient) {
+  // Return false if exists already
   for(auto itr = this->ingredients.begin(); itr < this->ingredients.end(); ++itr) {
     if (strcmp(itr->get_name().c_str(), ingredient.get_name().c_str()) == 0) { return false; }
   }
@@ -185,10 +187,12 @@ bool xRegistry::verify_ingredient(Ingredient ingredient) {
 }
 
 bool xRegistry::add_recipe(Recipe recipe) {
+  // Add Recipe if it doesn't already exist
   if (this->verify_recipe(recipe)) { this->recipes.push_back(recipe); return true; }
   return false;
 }
 bool xRegistry::verify_recipe(Recipe recipe) {
+  // Return false if exists already
   for(auto itr = this->recipes.begin(); itr < this->recipes.end(); ++itr) {
     if (strcmp(itr->get_name().c_str(), recipe.get_name().c_str()) == 0) { return false; }
   }

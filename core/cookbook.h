@@ -20,7 +20,9 @@ public:
   CookBook();
   CookBook(std::string);
   void register_ingredient(Ingredient);
-  bool check_registry(Ingredient*);
+  void register_recipe(Recipe);
+  bool check_ingredient_with_registry(Ingredient*);
+  bool check_recipe_with_registry(Recipe*);
   Ingredient get_ingredient_by_name(std::string);
   Ingredient get_ingredient_by_uuid(std::string);
   int get_book_size();
