@@ -7,11 +7,12 @@ class CookBookTest : public BaseTest {
 protected:
 private:
   CookBook* cookbook;
+
 public:
   CookBookTest();
-  // void test_all();
-  // void caseIngestCookBook();
-  // void caseCheckRegistry();
+  void test_all();
+  void caseCheckIngredientRegistry();
+  void caseCheckRecipeRegistry();
   ~CookBookTest();
 };
 

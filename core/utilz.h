@@ -20,6 +20,7 @@ namespace Utilz {
   void Strip(std::string&);
   std::string randomString(int);
   std::string get_uuid();
+  void FilePathConversion(int, std::string&);
 }; // namespace Utilz
 
 extern "C" {

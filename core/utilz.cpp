@@ -77,3 +77,20 @@ std::string Utilz::get_uuid() {
   }
   return newuuid ;
 }
+
+void Utilz::FilePathConversion(int direction, std::string& filename) {
+  size_t pos = 0;
+  if (direction == 1) {
+    // Dos2Unix
+    while ((pos = filename.find("\\\\", pos)) != std::string::npos) {
+      filename.replace(pos, 2, "/");
+      pos += 1; // Move past the inserted backslash
+    }
+  } else {
+    // Unix2Dos
+    while ((pos = filename.find('/', pos)) != std::string::npos) {
+      filename.replace(pos, 1, "\\");
+      pos += 2; // Move past the inserted backslash
+    }
+  }
+}

@@ -19,7 +19,7 @@
 6: CookTemp;
 7: IngredientUUID|#|Count|Volume,...;
 8: RecipeUUID|#|Count|Volume,...;
-9: Instr1|...; 
+9: Instr1|...;
 */
 class xRegistry : xObject {
 protected:

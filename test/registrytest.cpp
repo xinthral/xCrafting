@@ -6,6 +6,8 @@ RegistryTest::RegistryTest() : BaseTest() {
   this->msgTail = "from the Registrar!";
 
   this->registrar = new xRegistry();
+  this->registrar->parse_csv(1, "test/test.ib"); 
+  this->registrar->parse_csv(2, "test/test.rb"); 
   this->test_all(); 
 }
 
@@ -17,14 +19,12 @@ void RegistryTest::test_all() {
 }
 
 void RegistryTest::test_ingestIngredients() { 
-  this->registrar->parse_csv(1, "test/test.ib"); 
-  this->registrar->display_ingredients();
+  // this->registrar->display_ingredients();
   printf("%s [%s] %s\n", msgHead.c_str(), "injesting ingredients", msgTail.c_str());
 }
 
 void RegistryTest::test_ingestRecipes() { 
-  this->registrar->parse_csv(2, "test/test.rb"); 
-  this->registrar->display_recipes();
+  // this->registrar->display_recipes();
   printf("%s [%s] %s\n", msgHead.c_str(), "injesting recipes", msgTail.c_str());
 }
 

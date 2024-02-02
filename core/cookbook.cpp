@@ -2,32 +2,24 @@
 
 CookBook::CookBook() : xObject() {}
 
-CookBook::CookBook(std::string filename) : bookname(filename) {}
+CookBook::CookBook(std::string filename) : bookname(filename) { this->registrar = new xRegistry(); }
 
-void CookBook::register_ingredient(Ingredient item) {
-  if (this->check_ingredient_with_registry(&item)) { return; }
-  // this->registrar.push_back(item);
-}
-
-bool check_ingredient_with_registry(Ingredient* item) {
-  // for (std::vector<Recipe>::iterator itr = this->registry.begin(); itr != this->registry.end(); itr++) {
-  //   if (itr->get_name() == item->get_name()) { return true; }
-  // }
-  std::cout << "Check_Registry: " << item->get_name() << " not found." << std::endl;
+bool CookBook::register_ingredient(Ingredient item) {
+  if (!this->registrar->add_ingredient(item)) { return true; }
+  printf("Ingredient not in registry\n");
   return false;
 }
 
-bool check_recipe_with_registry(Recipe* item) {
-  // for (std::vector<Ingredient>::iterator itr = this->registry.begin(); itr != this->registry.end(); itr++) {
-  //   if (itr->get_name() == item->get_name()) { return true; }
-  // }
-  std::cout << "Check_Registry: " << item->get_name() << " not found." << std::endl;
+bool CookBook::register_recipe(Recipe item) {
+  if (!this->registrar->add_recipe(item)) { return true; }
+  printf("Recipe not in registry\n");
   return false;
 }
-
-Ingredient CookBook::get_ingredient_by_name(std::string name) { return Ingredient(); }
-Ingredient CookBook::get_ingredient_by_uuid(std::string uuid) { return Ingredient(); }
 
 int CookBook::get_book_size() { return this->cookbook.size(); }
+
+void CookBook::load_ingredients(std::string filename) { this->registrar->parse_csv(1, filename); }
+
+void CookBook::load_recipes(std::string filename) { this->registrar->parse_csv(2, filename); }
 
 CookBook::~CookBook() { }
