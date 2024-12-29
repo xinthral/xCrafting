@@ -1,7 +1,57 @@
 #include "registry.h"
 
+
 xRegistry::xRegistry() : xObject() {
   this->registrar.exceptions(std::ifstream::badbit); // No need to check failbit
+}
+
+bool xRegistry::add_ingredient(Ingredient ingredient) {
+  // Add Ingredient if it doesn't already exist
+  if (this->verify_ingredient(ingredient)) {
+    this->ingredients.push_back(ingredient);
+    return true;
+  }
+  return false;
+}
+
+
+bool xRegistry::add_recipe(Recipe recipe) {
+  // Add Recipe if it doesn't already exist
+  if (this->verify_recipe(recipe)) {
+    this->recipes.push_back(recipe);
+    return true;
+  }
+  return false;
+}
+
+
+void xRegistry::display_ingredients() {
+  std::string s;
+  int t, l, r;
+  printf("\nIngredient List:\n");
+  for (auto itr : this->ingredients) {
+    s = itr.get_name();
+    t = s.length();
+    l = 16 + (t / 2);
+    r = 32 - l;
+    printf("[[]%*s%*s[]]\n", l, s.c_str(), r, "");
+  }
+  printf("\n");
+}
+
+
+void xRegistry::display_recipes() {
+  std::string s;
+  int t, l, r;
+  printf("\nRecipe List:\n");
+  for (auto itr : this->recipes) {
+    s = itr.get_name();
+    t = s.length();
+    l = 16 + (t / 2);
+    r = 32 - l;
+    printf("[[]%*s%*s[]]\n", l, s.c_str(), r, "");
+  }
+  printf("\n");
 }
 
 int xRegistry::get_itype_index(std::string name) {
@@ -13,6 +63,7 @@ int xRegistry::get_itype_index(std::string name) {
   }
   return output;
 }
+
 
 void xRegistry::parse_csv(int filetype, std::string filename) {
   std::string row;
@@ -43,6 +94,88 @@ void xRegistry::parse_csv(int filetype, std::string filename) {
   //! Closes File
   this->registrar.close();
 }
+
+
+void xRegistry::parse_ingredient(std::string row) {
+  /*
+  1: UUID;
+  2: Ingedient Name;
+  3: Type;
+  4: Location;
+  */
+  std::string output, uuid, iname, itype, loc;
+  char* token;
+  int step = 1, idx = 0;
+  token = strtok(const_cast<char*>(row.c_str()), ";\r\n");
+  while (token != NULL) {
+    output += token;
+    switch (step) {
+      case 1: uuid = token; break;
+      case 2: iname = token; break;
+      case 3: itype = token; break;
+      case 4: loc = token;
+      default: break;
+    }
+    token = strtok(NULL, ";\r\n");
+    if (token != NULL) { output += ";::;"; }
+    step++;
+  }
+  Ingredient ing(uuid, iname, 1, itype);
+  ing.set_location(loc);
+  this->add_ingredient(ing);
+}
+
+
+
+void xRegistry::parse_ingredient_from_recipe(std::string row, std::vector<std::string>& output) {
+  char* token;
+  char* symbol;
+  token = strtok(const_cast<char*>(row.c_str()), ",\r\n");
+  while (token != NULL) {
+    symbol = strtok(token, "|\r\n");
+    output.push_back(symbol);
+    token = strtok(NULL, ",");
+  }
+}
+
+
+void xRegistry::parse_instructions_from_recipe(std::string row, std::vector<std::string>& output) {
+  char* token;
+  token = strtok(const_cast<char*>(row.c_str()), "|\r\n");
+  while (token != NULL) {
+    output.push_back(token);
+    token = strtok(NULL, "|\r\n");
+  }
+}
+
+
+void xRegistry::parse_nested_from_recipe(std::string row, std::vector<std::string>& output) {
+  char* token;
+  char* symbol;
+  token = strtok(const_cast<char*>(row.c_str()), ",\r\n");
+  while (token != NULL) {
+    symbol = strtok(token, "|\r\n");
+    output.push_back(symbol);
+    token = strtok(NULL, ",");
+  }
+}
+
+
+
+std::string xRegistry::parse_raw(std::string row) {
+  char* token;
+  std::string output;
+  token = strtok(const_cast<char*>(row.c_str()), ";\r\n");
+  while (token != NULL) {
+    output += token;
+    token = strtok(NULL, ";\r\n");
+    if (token != NULL) { output += ";::;"; }
+  }
+  printf("Raw: %s\n", output.c_str());
+  return output;
+}
+
+
 
 void xRegistry::parse_recipe(std::string row) {
   /*
@@ -94,95 +227,13 @@ void xRegistry::parse_recipe(std::string row) {
   rec.set_preptime(ptimei);
   rec.set_cooktime(ctimei);
   rec.set_cooktemp(ctemp);
-  // FIXME: the follow need to be made
+  // FIXME : the follow need to be made
   rec.set_ingredients(ingr);
   rec.set_nested_recipes(recp);
   rec.set_instructions(inst);
   this->add_recipe(rec);
 }
 
-void xRegistry::parse_ingredient(std::string row) {
-  /*
-  1: UUID;
-  2: Ingedient Name;
-  3: Type;
-  4: Location;
-  */
-  std::string output, uuid, iname, itype, loc;
-  char* token;
-  int step = 1, idx = 0;
-  token = strtok(const_cast<char*>(row.c_str()), ";\r\n");
-  while (token != NULL) {
-    output += token;
-    switch (step) {
-      case 1: uuid = token; break;
-      case 2: iname = token; break;
-      case 3: itype = token; break;
-      case 4: loc = token;
-      default: break;
-    }
-    token = strtok(NULL, ";\r\n");
-    if (token != NULL) { output += ";::;"; }
-    step++;
-  }
-  Ingredient ing(uuid, iname, 1, itype);
-  ing.set_location(loc);
-  this->add_ingredient(ing);
-  // printf("Ingredient: %s\n", output.c_str());
-}
-
-void xRegistry::parse_ingredient_from_recipe(std::string row, std::vector<std::string>& output) {
-  char* token;
-  char* symbol;
-  token = strtok(const_cast<char*>(row.c_str()), ",\r\n");
-  while (token != NULL) {
-    symbol = strtok(token, "|\r\n");
-    output.push_back(symbol);
-    token = strtok(NULL, ",");
-  }
-}
-
-void xRegistry::parse_nested_from_recipe(std::string row, std::vector<std::string>& output) {
-  char* token;
-  char* symbol;
-  token = strtok(const_cast<char*>(row.c_str()), ",\r\n");
-  while (token != NULL) {
-    symbol = strtok(token, "|\r\n");
-    output.push_back(symbol);
-    token = strtok(NULL, ",");
-  }
-}
-
-void xRegistry::parse_instructions_from_recipe(std::string row, std::vector<std::string>& output) {
-  char* token;
-  token = strtok(const_cast<char*>(row.c_str()), "|\r\n");
-  while (token != NULL) {
-    output.push_back(token);
-    token = strtok(NULL, "|\r\n");
-  }
-}
-
-std::string xRegistry::parse_raw(std::string row) {
-  char* token;
-  std::string output;
-  token = strtok(const_cast<char*>(row.c_str()), ";\r\n");
-  while (token != NULL) {
-    output += token;
-    token = strtok(NULL, ";\r\n");
-    if (token != NULL) { output += ";::;"; }
-  }
-  printf("Raw: %s\n", output.c_str());
-  return output;
-}
-
-bool xRegistry::add_ingredient(Ingredient ingredient) {
-  // Add Ingredient if it doesn't already exist
-  if (this->verify_ingredient(ingredient)) {
-    this->ingredients.push_back(ingredient);
-    return true;
-  }
-  return false;
-}
 
 bool xRegistry::verify_ingredient(Ingredient ingredient) {
   // Return false if exists already
@@ -193,14 +244,7 @@ bool xRegistry::verify_ingredient(Ingredient ingredient) {
   return true;
 }
 
-bool xRegistry::add_recipe(Recipe recipe) {
-  // Add Recipe if it doesn't already exist
-  if (this->verify_recipe(recipe)) {
-    this->recipes.push_back(recipe);
-    return true;
-  }
-  return false;
-}
+
 
 bool xRegistry::verify_recipe(Recipe recipe) {
   // Return false if exists already
@@ -213,32 +257,5 @@ bool xRegistry::verify_recipe(Recipe recipe) {
   return true;
 }
 
-void xRegistry::display_ingredients() {
-  std::string s;
-  int t, l, r;
-  printf("\nIngredient List:\n");
-  for (auto itr : this->ingredients) {
-    s = itr.get_name();
-    t = s.length();
-    l = 16 + (t / 2);
-    r = 32 - l;
-    printf("[[]%*s%*s[]]\n", l, s.c_str(), r, "");
-  }
-  printf("\n");
-}
-
-void xRegistry::display_recipes() {
-  std::string s;
-  int t, l, r;
-  printf("\nRecipe List:\n");
-  for (auto itr : this->recipes) {
-    s = itr.get_name();
-    t = s.length();
-    l = 16 + (t / 2);
-    r = 32 - l;
-    printf("[[]%*s%*s[]]\n", l, s.c_str(), r, "");
-  }
-  printf("\n");
-}
 
 xRegistry::~xRegistry() {}
