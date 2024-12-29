@@ -1,9 +1,10 @@
-# 
+# Global Variables
 CC := g++
 CFLAGS := -g -std=gnu++2a
 EXEC := bin/cookbook
 NULL := /dev/null
 SEPR := /*
+DOXYGEN := doxygen
 
 # Windows Variants
 ifeq ($(OS), Windows_NT)
@@ -12,6 +13,7 @@ RM := del
 EXEC := bin\\cookbook
 NULL := NUL
 SEPR := \\*
+DOXYGEN := doxygen.exe
 endif
 
 # Source File Peperation
@@ -36,10 +38,12 @@ MODS := $(CORE) $(TEST) $(MOD1) $(MOD2) $(MOD3)
 all:
 	@echo make [option]
 	@echo ""
-	@echo  [core] - main cookbook
-	@echo  [test] - test core functionality
-	@echo  [cli]  - Command Line Interface
 	@echo  [botw] - Breath of the Wild
+	@echo  [core] - main cookbook
+	@echo  [cli]  - Command Line Interface
+	@echo  [docs] - HTML Documentation
+	@echo  [mine] - Minecraft
+	@echo  [test] - test core functionality
 	@echo  [cleanbin]  - cleans up binaries
 	@echo  [cleancore] - cleans up the core library 
 	@echo  [cleanbotw] - cleans up the botw library 
@@ -63,30 +67,48 @@ $(MOD2): $(MOD2SRC) $(CORESRC)
 $(MOD3): $(MOD3SRC) $(CORESRC)
 	$(CC) $(CFLAGS) $^ -o $(EXEC)_$@.exe
 
+docs: docs/dox.ini
+	$(DOXYGEN) $<
+
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Clean Directives
 clean: 
+	@echo Cleaning up all Object Files
 	$(RM) $(foreach d, $(MODS), $d$(SEPR).o) 2>$(NULL)
 
 cleanbin:
+	@echo Cleaning Binary Files
 	$(RM) $(EXEC)_*.exe 2>$(NULL)
 
 cleancore:
+	@echo Cleaning Core Object Files
 	$(RM) core$(SEPR).o
 
+cleandocs:
+	@echo Cleaning Doxygen Documents
+ifeq ($(OS), Windows_NT)
+	@powershell -ExecutionPolicy Bypass -File .\docs\docCleanup.ps1 
+else
+	find docs/html/ docs/latex/ docs/out/ ! -name .gitkeep -type f -delete
+endif
+
 cleanbotw:
+	@echo Cleaning BoTW Object Files
 	$(RM) botw$(SEPR).o
 
 cleanmine:
+	@echo Cleaning Minecraft Object Files
 	$(RM) mine$(SEPR).o
 	
 cleantest:
+	@echo Cleaning Test Object Files
 	$(RM) test$(SEPR).o
 
 cleanall: 
 	$(MAKE) cleanbin
 	$(MAKE) clean
+	$(MAKE) cleandocs
 
-.PHONEY: clean cleanbin cleancore cleanbotw cleanmine cleanall botw mine 
+.PHONEY: clean cleanall cleanbin cleanbotw cleancore cleandocs cleanmine botw docs mine 
