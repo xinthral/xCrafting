@@ -36,7 +36,7 @@ void UtilzTest::test_StringToArray_TrailingSpace() {
 }
 
 void UtilzTest::test_NewUuid() {
-  std::string resposne = Utilz::get_uuid();
+  std::string resposne = Utilz::CreateUUID();
   printf("%s [%s] %s\n", msgHead.c_str(), resposne.c_str(), msgTail.c_str());
 }
 

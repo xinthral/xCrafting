@@ -16,7 +16,7 @@ void CommandLine::display_recipes() {
 }
 
 void CommandLine::injest_ingredient() {
-  std::string uuid = Utilz::get_uuid();
+  std::string uuid = Utilz::CreateUUID();
   std::string name;
   name = Utilz::UserInput("Input Ingredient Name: ");
   Ingredient ing(uuid, name);
@@ -26,7 +26,7 @@ void CommandLine::injest_ingredient() {
 }
 
 void CommandLine::injest_recipe() {
-  std::string uuid = Utilz::get_uuid();
+  std::string uuid = Utilz::CreateUUID();
   std::string name;
   name = Utilz::UserInput("Input Recipe Name: ");
   Recipe recipe(uuid, name);

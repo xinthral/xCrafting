@@ -15,7 +15,7 @@ void RecipeTest::test_all() {
 
 void RecipeTest::test_id_recipe() {
   char buf[128];
-  std::string uuid = Utilz::get_uuid();
+  std::string uuid = Utilz::CreateUUID();
   Recipe* recipe = new Recipe(uuid);
   assert(recipe->get_xid() == uuid);
   sprintf(buf, this->succMsg.c_str(), this->msgHead.c_str(), "uuid", recipe->get_xid().c_str(), this->msgTail.c_str());
@@ -24,7 +24,7 @@ void RecipeTest::test_id_recipe() {
 
 void RecipeTest::test_named_recipe() {
   char buf[128];
-  std::string uuid = Utilz::get_uuid();
+  std::string uuid = Utilz::CreateUUID();
   std::string name = "MaxSnax";
   Recipe* recipe = new Recipe(uuid, name);
   assert(recipe->get_name() == name);

@@ -16,7 +16,7 @@ void CommandLine::display_recipes() {
 }
 
 void CommandLine::injest_ingredient() {
-  std::string uuid = Utilz::get_uuid();
+  std::string uuid = Utilz::CreateUUID();
   printf("Input Ingredient Name: ");
   std::string name;
   scanf("%d", &name);

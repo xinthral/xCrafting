@@ -16,8 +16,8 @@ void IngredientTest::test_all() {
 
 void IngredientTest::test_newIngredientName() {
   char buf[128];
-  std::string name = Utilz::randomString(6);
-  std::string uuid = Utilz::get_uuid();
+  std::string name = Utilz::RandomString(6);
+  std::string uuid = Utilz::CreateUUID();
   Ingredient ing(uuid, name);
   assert(ing.get_name() == name);
   sprintf(buf, this->succMsg.c_str(), this->msgHead.c_str(), "name", ing.get_name().c_str(), this->msgTail.c_str());
@@ -26,7 +26,7 @@ void IngredientTest::test_newIngredientName() {
 
 void IngredientTest::test_newIngredientUUID() {
   char buf[128];
-  std::string uuid = Utilz::get_uuid();
+  std::string uuid = Utilz::CreateUUID();
   Ingredient ing(uuid);
   assert(ing.get_xid() == uuid);
   sprintf(buf, this->succMsg.c_str(), this->msgHead.c_str(), "uuid", ing.get_xid().c_str(), this->msgTail.c_str());
@@ -35,7 +35,7 @@ void IngredientTest::test_newIngredientUUID() {
 
 void IngredientTest::test_newIngredientType() {
   char buf[128];
-  Ingredient ing(Utilz::get_uuid());
+  Ingredient ing(Utilz::CreateUUID());
   std::string itype = "Protein";
   ing.set_type(itype);
   std::string rtype = ing.get_type();
