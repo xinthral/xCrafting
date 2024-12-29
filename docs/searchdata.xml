@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<add>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">basetest.h</field>
+    <field name="url">basetest_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">basetest.h</field>
+    <field name="url">basetest_8h_source.html#l00012</field>
+    <field name="keywords"></field>
+    <field name="text">BaseTest std::string msgHead std::string msgBody std::string msgTail std::string succMsg count BaseTest BaseTest test_all BaseTest</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cli.h</field>
+    <field name="url">botw_2cli_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cli.h</field>
+    <field name="url">botw_2cli_8h_source.html#l00012</field>
+    <field name="keywords"></field>
+    <field name="text">CommandLine xRegistry registrar std::vector&lt;std::string&gt; _history CommandLine display_ingredients display_recipes injest_ingredient injest_recipe history CommandLine</field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">BaseTest</field>
+    <field name="url">class_base_test.html</field>
+    <field name="keywords">BaseTest</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">CommandLine</field>
+    <field name="url">class_command_line.html</field>
+    <field name="keywords">CommandLine</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">CookBook</field>
+    <field name="url">class_cook_book.html</field>
+    <field name="keywords">CookBook</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">CookBookTest</field>
+    <field name="url">class_cook_book_test.html</field>
+    <field name="keywords">CookBookTest</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">Elixirs</field>
+    <field name="url">class_elixirs.html</field>
+    <field name="keywords">Elixirs</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">Ingredient</field>
+    <field name="url">class_ingredient.html</field>
+    <field name="keywords">Ingredient</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">variable</field>
+    <field name="name">Ingredient::IName</field>
+    <field name="args">[5]</field>
+    <field name="url">class_ingredient.html#ad9bb5384743840df484cb6af29f1d506</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">IngredientTest</field>
+    <field name="url">class_ingredient_test.html</field>
+    <field name="keywords">IngredientTest</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">Recipe</field>
+    <field name="url">class_recipe.html</field>
+    <field name="keywords">Recipe</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">RecipeTest</field>
+    <field name="url">class_recipe_test.html</field>
+    <field name="keywords">RecipeTest</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">RegistryTest</field>
+    <field name="url">class_registry_test.html</field>
+    <field name="keywords">RegistryTest</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">UtilzTest</field>
+    <field name="url">class_utilz_test.html</field>
+    <field name="keywords">UtilzTest</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">xObject</field>
+    <field name="url">classx_object.html</field>
+    <field name="keywords">xObject</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::xObject</field>
+    <field name="args">(std::string, std::string)</field>
+    <field name="url">classx_object.html#a2288a942041f16553f38080aa20a11cb</field>
+    <field name="keywords">xObject xObject::xObject xObject</field>
+    <field name="text">Constructor for xObject class with specified ID and name Constructor for xObject class with specified ID and name Constructor for xObject class with specified ID and name Constructor for xObject class with specified ID and name Constructor for xObject class with specified ID and name This constructor initializes an xObject with a given ID and name If either the ID or name is empty it prints an error message and exits the program The prompt is set to id The unique identifier for the xObject name The name of the xObject If the id or name is empty it prints an error message and exits the program</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::get_prompt</field>
+    <field name="args">()</field>
+    <field name="url">classx_object.html#a2d52ae27eed409104fb837a97cbc7cc6</field>
+    <field name="keywords">get_prompt xObject::get_prompt xObject</field>
+    <field name="text">Retrieves the prompt of the xObject Retrieves the prompt of the xObject Retrieves the prompt of the xObject Retrieves the prompt of the xObject Retrieves the prompt of the xObject This function returns the prompt of the xObject The prompt is a string that represents the user input prompt A string representing the prompt of the xObject</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::~xObject</field>
+    <field name="args">()</field>
+    <field name="url">classx_object.html#a4470a4e0853ade3d816f3aeb1a8ca542</field>
+    <field name="keywords">xObject::~xObject xObject</field>
+    <field name="text">Default Deconstructor Default Deconstructor Default Deconstructor Default Deconstructor Default Deconstructor</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::set_name</field>
+    <field name="args">(std::string)</field>
+    <field name="url">classx_object.html#a50215fbe87a8e1d381113c0ca1f23223</field>
+    <field name="keywords">set_name xObject::set_name xObject</field>
+    <field name="text">Sets the name of the xObject Sets the name of the xObject Sets the name of the xObject Sets the name of the xObject Sets the name of the xObject This function sets the name of the xObject to the given string The name is used to identify the object rename The new name for the xObject The size of the new name The name is not validated in this function It is the responsibility of the caller to ensure that the name is valid</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::xObject</field>
+    <field name="args">()</field>
+    <field name="url">classx_object.html#a51008d25e4c6abfc4e46d890aa97016a</field>
+    <field name="keywords">xObject xObject::xObject xObject</field>
+    <field name="text">Default Constructor for xObject class Default Constructor for xObject class Default Constructor for xObject class Default Constructor for xObject class Default Constructor for xObject class Initializes an xObject with a unique ID generated by Utilz::get_uuid() a random name of length 6 and a prompt set to</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::get_xid</field>
+    <field name="args">()</field>
+    <field name="url">classx_object.html#a5822ec4c7fd7426e7f3adbda6a4ec903</field>
+    <field name="keywords">get_xid xObject::get_xid xObject</field>
+    <field name="text">Retrieves the unique identifier of the xObject Retrieves the unique identifier of the xObject Retrieves the unique identifier of the xObject Retrieves the unique identifier of the xObject Retrieves the unique identifier of the xObject This function returns the unique identifier of the xObject The unique identifier is a string that represents the internal ID of the object A string representing the unique identifier of the xObject</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::xObject</field>
+    <field name="args">(std::string)</field>
+    <field name="url">classx_object.html#a66841b1adb85364b318f1d0c215f138a</field>
+    <field name="keywords">xObject xObject::xObject xObject</field>
+    <field name="text">Constructor for xObject class with a specified ID Constructor for xObject class with a specified ID Constructor for xObject class with a specified ID Constructor for xObject class with a specified ID Constructor for xObject class with a specified ID This constructor initializes an xObject with a given ID id The unique identifier for the xObject</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::set_prompt</field>
+    <field name="args">(std::string)</field>
+    <field name="url">classx_object.html#a84c20c8e703e21182a3f611e5f026a3a</field>
+    <field name="keywords">set_prompt xObject::set_prompt xObject</field>
+    <field name="text">Sets the prompt of the xObject Sets the prompt of the xObject Sets the prompt of the xObject Sets the prompt of the xObject Sets the prompt of the xObject This function sets the prompt of the xObject to the given string The prompt is used to display a user input prompt reprompt The new prompt for the xObject It should be a string that ends with a space character If an empty string is provided the prompt will be set to The size of the new prompt The prompt is not validated in this function It is the responsibility of the caller to ensure that the prompt is valid If an empty string is provided the prompt will be set to</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::get_name</field>
+    <field name="args">()</field>
+    <field name="url">classx_object.html#a8ebf4e038ff0714ffc7761e5aff72770</field>
+    <field name="keywords">get_name xObject::get_name xObject</field>
+    <field name="text">Retrieves the name of the xObject Retrieves the name of the xObject Retrieves the name of the xObject Retrieves the name of the xObject Retrieves the name of the xObject This function returns the name of the xObject The name is a string that represents the identifier of the object A string representing the name of the xObject</field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xObject::set_xid</field>
+    <field name="args">(std::string)</field>
+    <field name="url">classx_object.html#aeb2e0e91d44bae6758a9034dae237df8</field>
+    <field name="keywords">set_xid xObject::set_xid xObject</field>
+    <field name="text">Sets the unique identifier of the xObject Sets the unique identifier of the xObject Sets the unique identifier of the xObject Sets the unique identifier of the xObject Sets the unique identifier of the xObject This function sets the unique identifier of the xObject to the given string The unique identifier is used to uniquely identify the object within the system id The new unique identifier for the xObject It should be a non-empty string The new unique identifier of the xObject The function does not validate the uniqueness of the ID It is the responsibility of the caller to ensure that the ID is unique If an empty string is provided the internal ID will remain unchanged</field>
+  </doc>
+  <doc>
+    <field name="type">class</field>
+    <field name="name">xRegistry</field>
+    <field name="url">classx_registry.html</field>
+    <field name="keywords">xRegistry</field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">function</field>
+    <field name="name">xRegistry::parse_csv</field>
+    <field name="args">(int, std::string)</field>
+    <field name="url">classx_registry.html#a338d1ef12166b7c9d3e26a638a64878a</field>
+    <field name="keywords">parse_csv xRegistry::parse_csv xRegistry</field>
+    <field name="text">Opens File Closes File</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cli.h</field>
+    <field name="url">cli_2cli_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text">CommandLine xRegistry registrar std::vector&lt;int&gt; _history CommandLine display_ingredients display_recipes injest_ingredient injest_recipe history append_history CommandLine</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cookbook.h</field>
+    <field name="url">cookbook_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cookbook.h</field>
+    <field name="url">cookbook_8h_source.html#l00010</field>
+    <field name="keywords"></field>
+    <field name="text">CookBook xObject xRegistry registrar std::string bookname std::ifstream book std::vector&lt;Recipe&gt; cookbook CookBook CookBook std::string register_ingredient Ingredient register_recipe Recipe load_ingredients std::string load_recipes std::string get_book_size CookBook</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cookbooktest.h</field>
+    <field name="url">cookbooktest_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cookbooktest.h</field>
+    <field name="url">cookbooktest_8h_source.html#l00006</field>
+    <field name="keywords"></field>
+    <field name="text">CookBookTest BaseTest CookBook cookbook CookBookTest test_all caseCheckIngredientRegistry caseCheckRecipeRegistry CookBookTest</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">elixir.h</field>
+    <field name="url">elixir_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">elixir.h</field>
+    <field name="url">elixir_8h_source.html#l00006</field>
+    <field name="keywords"></field>
+    <field name="text">Elixirs Recipe Elixirs Elixirs</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">ingredient.h</field>
+    <field name="url">ingredient_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">ingredient.h</field>
+    <field name="url">ingredient_8h_source.html#l00009</field>
+    <field name="keywords"></field>
+    <field name="text">Ingredient xObject quantity std::string location std::vector&lt;std::string&gt; provides std::string _type std::string IName Ingredient Ingredient std::string Ingredient std::string std::string Ingredient std::string std::string Ingredient std::string std::string std::string std::string get_type set_type std::string get_quantity set_quanitity std::string get_location set_location std::string add_provides std::string provides_length display_provides std::string type_repr Ingredient</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">ingredienttest.h</field>
+    <field name="url">ingredienttest_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">ingredienttest.h</field>
+    <field name="url">ingredienttest_8h_source.html#l00006</field>
+    <field name="keywords"></field>
+    <field name="text">IngredientTest BaseTest IngredientTest test_all test_newIngredientName test_newIngredientUUID test_newIngredientType test_newIngredientQuantity IngredientTest</field>
+  </doc>
+  <doc>
+    <field name="type">page</field>
+    <field name="name">md_docs_2_dev_notes</field>
+    <field name="url">md_docs_2_dev_notes.html</field>
+    <field name="keywords"></field>
+    <field name="text">Version 0.0.1 uuid Name Type Location 1 2 3 3 2 1 1 2 3 Chicken Protein Grocery 3 2 1 1 2 3 3 2 1 Peanuts Protein Grocery 1 3 2 3 2 1 1 3 2 Rice Grain Grocery 1 0 1 1 0 1 1 0 1 Soy Sauce Culinary Grocery 0 1 0 0 1 0 0 1 0 Butter Culinary Grocery 1 0 1 0 1 0 1 0 1 Salt Culinary Grocery uuid Name PrepTime CookTime CookType CookTemp Ingredient List UUID Count Volume Instruction List List of strings 2 3 1 2 3 1 2 3 1 Soy Chicken 1 0 min 1 0 min Saute Low 1 2 3 3 2 1 1 2 3 2 Breast|101-101-101 1 Cup Preheat Fry pan|Place some butter salt and chicken in pan|Cook until chicken is more white than pink|Pour in soy sauce|stir until done 1 3 2 2 1 3 1 3 2 Steamed Rice 5 min 2 0 min Appliance Steamed 1 3 2 3 2 1 1 3 2 2 Cups Wash Rice until water no longer cloudy|fill with water until about an inch above rice|Put in cooker 0 1 1 0 1 0 1 0 1 Jesses Chicken 1 5 min 1 5 min Saute 3 2 1 1 2 3 3 2 1 1 Handfull 2 3 1 2 3 1 2 3 1 1 Count|132-213-132 1 Count Start Rice cooking first|Cook peanuts in with chicken|Poor chicken over bed of rice May want to set times to be time-deltas</field>
+  </doc>
+  <doc>
+    <field name="type">page</field>
+    <field name="name">md_docs_2_r_e_a_d_m_e</field>
+    <field name="url">md_docs_2_r_e_a_d_m_e.html</field>
+    <field name="keywords"></field>
+    <field name="text">An application that takes a list of recipes and available ingredients to help you decide on what to make</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cli.h</field>
+    <field name="url">mine_2cli_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">recipe.h</field>
+    <field name="url">recipe_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">recipe.h</field>
+    <field name="url">recipe_8h_source.html#l00019</field>
+    <field name="keywords"></field>
+    <field name="text">Recipe xObject std::map&lt;std::string, std::string&gt; contains std::vector&lt;std::string&gt; instructions std::string cooktemp cooktime preptime cooktimemax Recipe Recipe std::string Recipe std::string std::string display_instructions display_ingredients get_cooktime std::string get_cooktemp get_preptime ingredient_count insert_ingredient std::string std::string remove_ingredient std::string set_ingredients std::vector&lt;std::string&gt; set_cooktime set_cooktemp std::string set_preptime set_nested_recipes std::vector&lt;std::string&gt; set_instructions std::vector&lt;std::string&gt; user_input_instructions Recipe</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">recipetest.h</field>
+    <field name="url">recipetest_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">recipetest.h</field>
+    <field name="url">recipetest_8h_source.html#l00006</field>
+    <field name="keywords"></field>
+    <field name="text">RecipeTest BaseTest RecipeTest test_all test_id_recipe test_named_recipe test_set_cooktime RecipeTest</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">registry.h</field>
+    <field name="url">registry_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">registry.h</field>
+    <field name="url">registry_8h_source.html#l00024</field>
+    <field name="keywords"></field>
+    <field name="text">xRegistry xObject std::fstream fin std::ifstream registrar std::vector&lt;Ingredient&gt; ingredients std::vector&lt;Recipe&gt; recipes std::map&lt;std::string,std::string&gt; ingMap xRegistry xRegistry std::string get_itype_index std::string parse_csv std::string parse_ingredient std::string parse_recipe std::string parse_ingredient_from_recipe std::string std::vector&lt;std::string&gt; parse_nested_from_recipe std::string std::vector&lt;std::string&gt; parse_instructions_from_recipe std::string std::vector&lt;std::string&gt; std::string parse_raw std::string add_ingredient Ingredient verify_ingredient Ingredient add_recipe Recipe verify_recipe Recipe display_ingredients display_recipes xRegistry</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">registrytest.h</field>
+    <field name="url">registrytest_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">registrytest.h</field>
+    <field name="url">registrytest_8h_source.html#l00006</field>
+    <field name="keywords"></field>
+    <field name="text">RegistryTest BaseTest xRegistry registrar RegistryTest test_all test_ingestIngredients test_ingestRecipes test_verificationIngredient test_verificationRecipe RegistryTest</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">cli.h</field>
+    <field name="url">test_2cli_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text">TestCookBook TestIngredient TestRecipe TestRegistry TestUtilz get_choice print_usage print_help</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">utilz.h</field>
+    <field name="url">utilz_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text">Utilz std::string CreateUUID std::string FileName std::string FileName FilePathConversion std::string std::string HeadString std::string std::string RandomString StringToArray std::string std::vector&lt;std::string&gt; Strip std::string std::string TailString std::string std::string TimeStamp std::string UserInput std::string addIt</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">utilztest.h</field>
+    <field name="url">utilztest_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">utilztest.h</field>
+    <field name="url">utilztest_8h_source.html#l00006</field>
+    <field name="keywords"></field>
+    <field name="text">UtilzTest BaseTest UtilzTest test_all test_StringToArray test_StringToArray_TrailingSpace test_NewUuid UtilzTest</field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">xobj.h</field>
+    <field name="url">xobj_8h_source.html#l00001</field>
+    <field name="keywords"></field>
+    <field name="text"></field>
+  </doc>
+  <doc>
+    <field name="type">source</field>
+    <field name="name">xobj.h</field>
+    <field name="url">xobj_8h_source.html#l00011</field>
+    <field name="keywords"></field>
+    <field name="text">xObject buf std::string xid std::string name std::string prompt xObject xObject std::string xObject std::string std::string std::string get_name std::string get_prompt std::string get_xid set_name std::string set_prompt std::string std::string set_xid std::string</field>
+  </doc>
+</add>

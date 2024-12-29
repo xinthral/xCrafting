@@ -17,6 +17,7 @@ DOXYGEN := doxygen.exe
 endif
 
 # Source File Peperation
+DOCS := docs
 CORE := core
 CORESRC := $(patsubst $(CORE)/%.cpp, $(CORE)/%.o, $(wildcard $(CORE)/*.cpp))
 
@@ -67,7 +68,10 @@ $(MOD2): $(MOD2SRC) $(CORESRC)
 $(MOD3): $(MOD3SRC) $(CORESRC)
 	$(CC) $(CFLAGS) $^ -o $(EXEC)_$@.exe
 
-docs: docs/dox.ini
+$(DOCS):
+	$(MAKE) -B $@
+
+doc: docs/conf.dox
 	$(DOXYGEN) $<
 
 %.o: %.cpp
@@ -111,4 +115,4 @@ cleanall:
 	$(MAKE) clean
 	$(MAKE) cleandocs
 
-.PHONEY: clean cleanall cleanbin cleanbotw cleancore cleandocs cleanmine botw docs mine 
+.PHONEY: clean cleanall cleanbin cleanbotw cleancore cleandocs cleanmine botw mine 
