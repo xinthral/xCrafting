@@ -75,7 +75,15 @@ std::string Utilz::get_uuid() {
       newuuid += hex[dist(rng)];
       newuuid += hex[dist(rng)];
   }
-  return newuuid ;
+  return newuuid;
+}
+
+std::string Utilz::UserInput(std::string message) {
+  std::string output;
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  printf("%s", message.c_str());
+  std::getline(std::cin, output);
+  return output;
 }
 
 void Utilz::FilePathConversion(int direction, std::string& filename) {

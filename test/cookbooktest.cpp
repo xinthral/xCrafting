@@ -16,17 +16,21 @@ void CookBookTest::test_all() {
 }
 
 void CookBookTest::caseCheckIngredientRegistry() {
+  char buf[128];
   Ingredient ing("123-321-123");
   bool r = this->cookbook->register_ingredient(ing);
   assert(true == r);
-  printf("%s [%s (%s)] %s\n", msgHead.c_str(), "ingredient uuid", ing.get_xid().c_str(), msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), msgHead.c_str(), "ingredient uuid", ing.get_xid().c_str(), msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 void CookBookTest::caseCheckRecipeRegistry() {
+  char buf[128];
   Recipe rec("132-213-132");
   bool r = this->cookbook->register_recipe(rec);
   assert(true == r);
-  printf("%s [%s (%s)] %s\n", msgHead.c_str(), "recipe uuid", rec.get_xid().c_str(), msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), msgHead.c_str(), "recipe uuid", rec.get_xid().c_str(), msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 CookBookTest::~CookBookTest() {}

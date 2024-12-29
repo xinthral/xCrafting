@@ -2,7 +2,9 @@
 
 CookBook::CookBook() : xObject() {}
 
-CookBook::CookBook(std::string filename) : bookname(filename) { this->registrar = new xRegistry(); }
+CookBook::CookBook(std::string filename) : bookname(filename) {
+  this->registrar = new xRegistry();
+}
 
 bool CookBook::register_ingredient(Ingredient item) {
   if (!this->registrar->add_ingredient(item)) { return true; }
@@ -16,10 +18,16 @@ bool CookBook::register_recipe(Recipe item) {
   return false;
 }
 
-int CookBook::get_book_size() { return this->cookbook.size(); }
+int CookBook::get_book_size() {
+  return this->cookbook.size();
+}
 
-void CookBook::load_ingredients(std::string filename) { this->registrar->parse_csv(1, filename); }
+void CookBook::load_ingredients(std::string filename) {
+  this->registrar->parse_csv(1, filename);
+}
 
-void CookBook::load_recipes(std::string filename) { this->registrar->parse_csv(2, filename); }
+void CookBook::load_recipes(std::string filename) {
+  this->registrar->parse_csv(2, filename);
+}
 
-CookBook::~CookBook() { }
+CookBook::~CookBook() {}

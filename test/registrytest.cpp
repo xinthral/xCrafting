@@ -18,28 +18,36 @@ void RegistryTest::test_all() {
   this->test_verificationRecipe();
 }
 
-void RegistryTest::test_ingestIngredients() { 
+void RegistryTest::test_ingestIngredients() {
+  char buf[128];
   // this->registrar->display_ingredients();
-  printf("%s [%s] %s\n", msgHead.c_str(), "injesting ingredients", msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), msgHead.c_str(), "injesting ingredients", msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 void RegistryTest::test_ingestRecipes() { 
+  char buf[128];
   // this->registrar->display_recipes();
-  printf("%s [%s] %s\n", msgHead.c_str(), "injesting recipes", msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), msgHead.c_str(), "injesting recipes", msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 void RegistryTest::test_verificationIngredient() {
+  char buf[128];
   Ingredient ing("012-234-456", "test_verificationIngredient");
   this->registrar->add_ingredient(ing);
   assert(this->registrar->verify_ingredient(ing) == false);
-  printf("%s [%s] %s\n", msgHead.c_str(), "verified ingredient", msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), msgHead.c_str(), "verified ingredient", msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 void RegistryTest::test_verificationRecipe() {
+  char buf[128];
   Recipe rec("654-432-210", "test_verificationRecipe");
   this->registrar->add_recipe(rec);
   assert(this->registrar->verify_recipe(rec) == false);
-  printf("%s [%s] %s\n", msgHead.c_str(), "verified recipe", msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), msgHead.c_str(), "verified recipe", msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 RegistryTest::~RegistryTest() {}

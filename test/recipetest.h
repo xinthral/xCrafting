@@ -8,7 +8,10 @@ protected:
 private:
 public:
   RecipeTest();
-  // void test_all();
+  void test_all();
+  void test_id_recipe();
+  void test_named_recipe();
+  void test_set_cooktime();
   ~RecipeTest();
 };
 

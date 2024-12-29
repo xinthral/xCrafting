@@ -3,11 +3,12 @@
 
 #include <algorithm>
 #include <ctime>
+#include <iostream>
 #include <iterator>
 #include <random>
 #include <stdio.h>
 #include <string>
-#include <string.h>
+#include <string.h>     // strtok
 #include <vector>
 
 namespace Utilz {
@@ -20,6 +21,7 @@ namespace Utilz {
   void Strip(std::string&);
   std::string randomString(int);
   std::string get_uuid();
+  std::string UserInput(std::string);
   void FilePathConversion(int, std::string&);
 }; // namespace Utilz
 

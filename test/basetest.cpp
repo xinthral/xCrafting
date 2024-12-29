@@ -1,6 +1,6 @@
 #include "basetest.h"
 
-BaseTest::BaseTest() {}
+BaseTest::BaseTest() : succMsg("%s [%s (%s)] %s") {}
 
 BaseTest::BaseTest(int testCount) : count(testCount) {}
 

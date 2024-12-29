@@ -82,5 +82,6 @@
     "xlocmes": "cpp",
     "xlocmon": "cpp",
     "xloctime": "cpp"
-  }
+  },
+  "makefile.configureOnOpen": true
 }

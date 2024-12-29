@@ -30,6 +30,11 @@ public:
   Recipe();
   Recipe(std::string);
   Recipe(std::string,std::string);
+  void display_instructions(bool);
+  void display_ingredients(bool);
+  int get_cooktime();
+  std::string get_cooktemp();
+  int get_preptime();
   int ingredient_count();
   int insert_ingredient(std::string,std::string); 
   int remove_ingredient(std::string);
@@ -38,13 +43,8 @@ public:
   void set_cooktemp(std::string);
   void set_preptime(int);
   void set_nested_recipes(std::vector<std::string>);
-  int get_cooktime();
-  std::string get_cooktemp();
-  int get_preptime();
   void set_instructions(std::vector<std::string>);
   void user_input_instructions();
-  void display_instructions(bool);
-  void display_ingredients(bool);
   ~Recipe();
 };
 

@@ -14,6 +14,7 @@ protected:
   std::string msgHead;
   std::string msgBody;
   std::string msgTail;
+  std::string succMsg;
   int count;
 
 private:

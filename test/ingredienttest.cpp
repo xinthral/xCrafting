@@ -15,34 +15,42 @@ void IngredientTest::test_all() {
 }
 
 void IngredientTest::test_newIngredientName() {
+  char buf[128];
   std::string name = Utilz::randomString(6);
   std::string uuid = Utilz::get_uuid();
   Ingredient ing(uuid, name);
   assert(ing.get_name() == name);
-  printf("%s [%s (%s)] %s\n", msgHead.c_str(), "name", name.c_str(), msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), this->msgHead.c_str(), "name", ing.get_name().c_str(), this->msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 void IngredientTest::test_newIngredientUUID() {
+  char buf[128];
   std::string uuid = Utilz::get_uuid();
   Ingredient ing(uuid);
   assert(ing.get_xid() == uuid);
-  printf("%s [%s (%s)] %s\n", msgHead.c_str(), "uuid", uuid.c_str(), msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), this->msgHead.c_str(), "uuid", ing.get_xid().c_str(), this->msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 void IngredientTest::test_newIngredientType() {
+  char buf[128];
   Ingredient ing(Utilz::get_uuid());
   std::string itype = "Protein";
   ing.set_type(itype);
   std::string rtype = ing.get_type();
   assert(strcmp(rtype.c_str(), itype.c_str()) == 0);
-  printf("%s [%s (%s)] %s\n", msgHead.c_str(), "type", "Protein", msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), this->msgHead.c_str(), "type", ing.get_type().c_str(), this->msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 void IngredientTest::test_newIngredientQuantity() {
+  char buf[128];
   Ingredient ing;
   ing.set_quanitity(1);
   assert(1 == ing.get_quantity());
-  printf("%s [%s (%d)] %s\n", msgHead.c_str(), "quantity", ing.get_quantity(), msgTail.c_str());
+  sprintf(buf, this->succMsg.c_str(), this->msgHead.c_str(), "quantity", "1", this->msgTail.c_str());
+  printf("%s\n", buf);
 }
 
 IngredientTest::~IngredientTest() {}
